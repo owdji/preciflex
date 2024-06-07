@@ -1,0 +1,28 @@
+.realizationPageContent {
+    width: 80%;
+    max-width: 828px;
+    margin: 0 auto; /* Centrer horizontalement */
+    padding: 20px; /* Optionnel: ajouter du padding pour une meilleure apparence */
+    /*box-sizing: border-box;  Assurer que le padding est inclus dans la largeur totale */
+
+    font-family: 'NeueHaasGrotesk', sans-serif;
+}
+
+.realizationPageContent h1 {
+    font-size: 47px;
+    /* line-height: 1.9; */
+    color: var(--electric-blue)
+}
+
+.realizationPageContent img {
+    width: 90%;
+    max-width: 944px;
+    height: auto;
+    margin-top: var(--small-space);
+    margin-bottom: var(--small-space);
+}
+
+.realizationPageContent p {
+    color: var(--black);
+    margin-bottom: var(--section-space);
+}

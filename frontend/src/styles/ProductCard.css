@@ -1,0 +1,39 @@
+.productCard {
+    background-color: var(--preciflex-gray);
+    margin: 10px;
+    padding: 17px;
+    width: 300px;
+    height: 400px;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Premier et dernier élément sans marges */
+  .productCard:first-child {
+    margin-left: 0;
+  }
+  
+  .productCard:last-child {
+    margin-right: 0;
+  }
+  
+
+.topProductCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.productCard img{
+    height: 200px;
+    width: 200px;
+    align-self: center;
+}
+
+.productCardServices{
+    color: var(--electric-blue);
+    text-align: right;
+}

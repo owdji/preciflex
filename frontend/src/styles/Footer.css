@@ -1,0 +1,25 @@
+/* Footer.css */
+
+#footer {
+    background-color: var(--black);
+    
+    display: flex;
+    flex-direction: row;
+    height: 898px;
+
+    padding-left: 43px;
+    padding-right: 43px;
+}
+
+.footerNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content: flex-end;
+    width: 40%;
+}

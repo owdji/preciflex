@@ -1,0 +1,106 @@
+/* index.css */
+
+:root {
+  /* COLORS */
+  --electric-blue: #006EEB;
+  --fluidic-blue: #003278;
+  --white: #fff;
+  --black: #000;
+  --preciflex-gray: #F0F0F0; 
+  --gray2: #CFCFCF;
+
+  
+  /* FONTS */
+  --neue-haas-grotesk: 'NeueHaasGrotesk', sans-serif;
+
+  /* H2 */
+  --h2-weight: light;
+  --h2-size: 47px;
+
+  /* SECTION SPACES */
+  --section-space: 115px;
+  --small-space: 30px;
+
+  /* BOLD 1 */
+  /* --bold1-weight: medium;
+  --bold1-size: 15px; */
+  
+  /* P2 */
+  /* ⚠️ trouver Extra light */
+  /* --p2-weight: font-weight: light;
+  --p2-size: font-size: 13px; */
+}
+
+/* REMOVE DEFAULTS */
+h1, h2, h3, h4, p{
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+@font-face {
+  font-family: 'NeueHaasGrotesk';
+  src: url('../fonts/NeueHaasDisplayMediu.ttf');
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeueHaasGrotesk';
+  src: url('../fonts//NeueHaasDisplayRoman.ttf');
+  font-weight: roman;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeueHaasGrotesk';
+  src: url('../fonts/NeueHaasDisplayThin.ttf');
+  font-weight: thin;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeueHaasGrotesk';
+  src: url('../fonts/NeueHaasDisplayLight.ttf');
+  font-weight: light;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeueHaasGrotesk';
+  src: url('../fonts/NeueHaasDisplayBold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+/* body {
+  font-family: 'NeueHaasGrotesk', sans-serif;
+  font-weight: light;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+.bold1 {
+  font-family: var(--neue-haas-grotesk);
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.p2 {
+  font-family: var(--neue-haas-grotesk);
+  font-weight: light;
+  font-size: 13px;
+}
+
+.h2 {
+  font-family: var(--neue-haas-grotesk);
+  font-weight: light;
+  font-size: 47px;
+}

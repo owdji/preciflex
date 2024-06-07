@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "realizations",
+  "info": {
+    "singularName": "realization",
+    "pluralName": "realizations",
+    "displayName": "Realization",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "maxLength": 30
+    },
+    "industry": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "luxury",
+        "medtech"
+      ],
+      "required": true
+    },
+    "services": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "options": [
+        "Ideation",
+        "R&D",
+        "Industrialization",
+        "Production"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "competences": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "customField",
+      "options": [
+        "Custom liquids",
+        "Liquid handling",
+        "Coating & sealing",
+        "Electronics",
+        "Optical system",
+        "Industrial design"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "productImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
+    "realizationPageContent": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
+    }
+  }
+}

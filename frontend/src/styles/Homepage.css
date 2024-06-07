@@ -1,0 +1,4 @@
+.productCards{
+    display: flex;
+    flex-direction: row;
+}

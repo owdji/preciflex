@@ -1,11 +1,38 @@
-.realizationPageContent {
+.realizationTemplate{
+    margin-left: 43px;
+    margin-right: 43px;
+}
+
+
+.realizationTemplateContent {
     width: 80%;
     max-width: 828px;
     margin: 0 auto; /* Centrer horizontalement */
     padding: 20px; /* Optionnel: ajouter du padding pour une meilleure apparence */
-    /*box-sizing: border-box;  Assurer que le padding est inclus dans la largeur totale */
 
     font-family: 'NeueHaasGrotesk', sans-serif;
+} 
+
+.realizationTemplateHero {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.realizationTemplatemainTitle {
+    font-size: 55px;
+}
+
+.realizationTemplateTableOfContents {    position: sticky;
+    top: var(--section-space);
+}
+
+.realizationTemplateImage{
+    width: 68%;
+    height: 300px;
+    object-fit: cover;
 }
 
 .realizationPageContent h1 {

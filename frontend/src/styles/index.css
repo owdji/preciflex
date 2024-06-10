@@ -29,6 +29,7 @@
   /* ⚠️ trouver Extra light */
   /* --p2-weight: font-weight: light;
   --p2-size: font-size: 13px; */
+  font-family: var(--neue-haas-grotesk);
 }
 
 /* REMOVE DEFAULTS */
@@ -78,29 +79,17 @@ a {
   font-style: normal;
 }
 
-
-/* body {
-  font-family: 'NeueHaasGrotesk', sans-serif;
-  font-weight: light;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
-
 .bold1 {
-  font-family: var(--neue-haas-grotesk);
   font-weight: bold;
   font-size: 15px;
 }
 
 .p2 {
-  font-family: var(--neue-haas-grotesk);
   font-weight: light;
   font-size: 13px;
 }
 
 .h2 {
-  font-family: var(--neue-haas-grotesk);
   font-weight: light;
   font-size: 47px;
 }

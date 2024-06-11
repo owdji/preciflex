@@ -362,6 +362,49 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'Home page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    slogan: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'You imagine it. We make it'>;
+    companyDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.DefaultTo<'We specialize in turning groundbreaking ideas into precision-engineered\u00A0 products. Our multidisciplinary teams have led microengineering advances serving medical and luxury industries'>;
+    luxuryImage: Attribute.Media<'images'> & Attribute.Required;
+    medtechImage: Attribute.Media<'images'> & Attribute.Required;
+    realizations: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToMany',
+      'api::realization.realization'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRealizationRealization extends Schema.CollectionType {
   collectionName: 'realizations';
   info: {
@@ -434,6 +477,12 @@ export interface ApiRealizationRealization extends Schema.CollectionType {
         };
       }>;
     realizationPageContent: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    banner: Attribute.Media<'images'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -899,6 +948,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::home-page.home-page': ApiHomePageHomePage;
       'api::realization.realization': ApiRealizationRealization;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;

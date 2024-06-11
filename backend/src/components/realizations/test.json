@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_realizations_tests",
+  "info": {
+    "displayName": "test",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

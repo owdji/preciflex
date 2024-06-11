@@ -1,4 +1,4 @@
 ## Launch project
-*BACKEND :* `npx strapi start`
+*BACKEND :* `npm run develop`
 
 *FRONTEND :* `npm start`

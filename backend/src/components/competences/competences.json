@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_competences_competences",
+  "info": {
+    "displayName": "competences",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "competenceTitle": {
+      "type": "string",
+      "required": true
+    },
+    "competenceDescription": {
+      "type": "text",
+      "required": true
+    },
+    "competenceImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

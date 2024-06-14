@@ -6,6 +6,7 @@
   --fluidic-blue: #003278;
   --white: #fff;
   --black: #000;
+  --black2: #313131;
   --preciflex-gray: #F0F0F0; 
   --gray2: #CFCFCF;
 
@@ -14,7 +15,7 @@
   --neue-haas-grotesk: 'NeueHaasGrotesk', sans-serif;
 
   /* H2 */
-  --h2-weight: light;
+  --h2-weight: 300;
   --h2-size: 47px;
 
   /* SECTION SPACES */
@@ -46,50 +47,72 @@ a {
 
 @font-face {
   font-family: 'NeueHaasGrotesk';
-  src: url('../fonts/NeueHaasDisplayMediu.ttf');
-  font-weight: medium;
+  src: url('../assets/fonts/NeueHaasDisplayMediu.ttf');
+  font-weight: 500; /* Medium */
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NeueHaasGrotesk';
-  src: url('../fonts//NeueHaasDisplayRoman.ttf');
-  font-weight: roman;
+  src: url('../assets/fonts//NeueHaasDisplayRoman.ttf');
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NeueHaasGrotesk';
-  src: url('../fonts/NeueHaasDisplayThin.ttf');
-  font-weight: thin;
+  src: url('../assets/fonts/NeueHaasDisplayThin.ttf');
+  font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NeueHaasGrotesk';
-  src: url('../fonts/NeueHaasDisplayLight.ttf');
-  font-weight: light;
+  src: url('../assets/fonts/NeueHaasDisplayLight.ttf');
+  font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NeueHaasGrotesk';
-  src: url('../fonts/NeueHaasDisplayBold.ttf');
-  font-weight: bold;
+  src: url('../assets/fonts/NeueHaasDisplayBold.ttf');
+  font-weight: 700;
   font-style: normal;
 }
 
 .bold1 {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 15px;
 }
 
+.p{
+  font-weight: 300;
+  font-size: 18px;
+
+}
+
 .p2 {
-  font-weight: light;
+  font-weight: 300;
   font-size: 13px;
 }
 
 .h2 {
-  font-weight: light;
+  font-weight: 100;
   font-size: 47px;
+  margin-bottom: var(--small-space);
+}
+
+.h1 {
+  font-weight: 100;
+  font-size: 52px;
+}
+
+.h3 {
+  font-weight: 300;
+  font-size: 47px;
+}
+
+.boldButton{
+  font-size: 22px;
+  font-weight: 500;
 }

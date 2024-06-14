@@ -374,9 +374,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    slogan: Attribute.String &
-      Attribute.Required &
-      Attribute.DefaultTo<'You imagine it. We make it'>;
     companyDescription: Attribute.Text &
       Attribute.Required &
       Attribute.DefaultTo<'We specialize in turning groundbreaking ideas into precision-engineered\u00A0 products. Our multidisciplinary teams have led microengineering advances serving medical and luxury industries'>;
@@ -387,6 +384,15 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'oneToMany',
       'api::realization.realization'
     >;
+    services: Attribute.Component<'services.services', true> &
+      Attribute.SetMinMax<
+        {
+          min: 4;
+          max: 4;
+        },
+        number
+      >;
+    competences: Attribute.Component<'competences.competences', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

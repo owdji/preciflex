@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "slogan": {
-      "type": "string",
-      "required": true,
-      "default": "You imagine it. We make it"
-    },
     "companyDescription": {
       "type": "text",
       "required": true,
@@ -42,6 +37,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::realization.realization"
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "services.services",
+      "max": 4,
+      "min": 4
+    },
+    "competences": {
+      "type": "component",
+      "repeatable": true,
+      "component": "competences.competences"
     }
   }
 }

@@ -1,14 +1,24 @@
 /* Footer.css */
 
-#footer {
+.footer {
     background-color: var(--black);
-    
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+    
     height: 898px;
 
     padding-left: 43px;
     padding-right: 43px;
+
+    margin-top: var(--section-space);
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .footerNavigation {
@@ -18,8 +28,16 @@
     width: 60%;
 }
 
+.footerNavigation p{
+    color: var(--white)
+}
+
 .socialMedia {
     display: flex;
     justify-content: flex-end;
     width: 40%;
+}
+
+.socialMedia a{
+    color: var(--white)
 }

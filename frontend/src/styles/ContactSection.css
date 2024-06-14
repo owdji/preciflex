@@ -1,0 +1,50 @@
+.contactSectionContainer{
+    height: 500px;
+    width: 100%;
+}
+
+.circle{
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.circleGray{
+    background-color: var(--gray2);
+}
+
+.circleBlack{
+    background-color: var(--black2);
+}
+
+.circleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+}
+
+
+.textCircleContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hugeContactUs{
+    font-size: 55px;
+    font-weight: 100;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.textBlue{
+    color: var(--electric-blue);
+}
+
+.textWhite{
+    color: #D9D9D9;
+}

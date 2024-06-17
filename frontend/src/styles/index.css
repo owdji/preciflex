@@ -20,6 +20,7 @@
 
   /* SECTION SPACES */
   --section-space: 115px;
+  --double-section-space: 230px;
   --small-space: 30px;
 
   /* BOLD 1 */
@@ -33,6 +34,11 @@
   font-family: var(--neue-haas-grotesk);
 }
 
+body{
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+}
 /* REMOVE DEFAULTS */
 h1, h2, h3, h4, p{
   margin: 0;
@@ -115,4 +121,9 @@ a {
 .boldButton{
   font-size: 22px;
   font-weight: 500;
+}
+
+.navigationLink{
+  font-size: 19px;
+  font-weight: 200;
 }

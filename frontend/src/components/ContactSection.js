@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import '../styles/ContactSection.css';
 
-const ContactSection = ({circleColor = 'circleGray', textColor = 'textBlue' }) => {
+const ContactSection = ({circleColor = 'circleGray', textColor = 'textBlue', numberOfRows = 2 }) => {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     const numberOfCircles = Array.from({ length: 50 });
@@ -70,7 +70,7 @@ const ContactSection = ({circleColor = 'circleGray', textColor = 'textBlue' }) =
 
   return (
     <div className='contactSectionContainer' onMouseMove={handleMouseMove}>
-      {renderCircles(2)}
+      {renderCircles(numberOfRows)}
       <div className='textCircleContainer'>
           {numberOfCircles2.map((_, index) => (
             <div className={`circle ${circleColor}`} key={index}></div>
@@ -80,7 +80,7 @@ const ContactSection = ({circleColor = 'circleGray', textColor = 'textBlue' }) =
             <div className={`circle ${circleColor}`} key={index}></div>
           ))}
       </div>
-      {renderCircles(2)}
+      {renderCircles(numberOfRows)}
     </div>
   );
 };

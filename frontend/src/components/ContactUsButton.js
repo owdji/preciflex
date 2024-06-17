@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
+import { Link } from 'react-router-dom'
 import { gsap } from 'gsap'
 import '../styles/ContactUsButton.css'
 
@@ -35,7 +36,7 @@ const containerRef = useRef(null);
   }, { scope: containerRef });
     
   return (
-    <div ref={containerRef}>
+    <Link ref={containerRef} to='/contact'>
       <div className="row">
         <div className="v-slider-frame">
           <ul className="v-slides">
@@ -53,7 +54,7 @@ const containerRef = useRef(null);
 
 
       </div>
-    </div>
+    </Link>
   )
 }
 

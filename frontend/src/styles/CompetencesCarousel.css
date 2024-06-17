@@ -6,7 +6,8 @@
 .comptencesTitle{
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 80%;
+    max-width: 1000px;
     justify-content: space-between;
     margin-top: var(--small-space);
     margin-bottom: 10px;

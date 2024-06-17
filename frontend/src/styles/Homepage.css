@@ -1,6 +1,8 @@
 .homePage {
     margin-left: 43px;
     margin-right: 43px;
+
+    padding-top: 100px;
 }
 
 /* HERO */
@@ -70,6 +72,10 @@
 
 .homePageOneService{
     width: 300px;
+}
+
+.homePageRealizations{
+    margin-top: var(--section-space);
 }
 
 .productCards{

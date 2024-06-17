@@ -150,7 +150,7 @@ const Homepage = () => {
 
       <ContactSection/>
 
-      <div>
+      <div className='homePageRealizations'>
         <h2 className="h2">Realizations</h2>
 
         <div className="productCards">

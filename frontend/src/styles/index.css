@@ -1,4 +1,46 @@
 /* index.css */
+/* TAILWIND STUFF */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+  @font-face {
+    font-family: 'NeueHaasGrotesk';
+    src: url('../assets/fonts/NeueHaasDisplayMediu.ttf');
+    font-weight: 500; /* Medium */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'NeueHaasGrotesk';
+    src: url('../assets/fonts//NeueHaasDisplayRoman.ttf');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'NeueHaasGrotesk';
+    src: url('../assets/fonts/NeueHaasDisplayThin.ttf');
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'NeueHaasGrotesk';
+    src: url('../assets/fonts/NeueHaasDisplayLight.ttf');
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'NeueHaasGrotesk';
+    src: url('../assets/fonts/NeueHaasDisplayBold.ttf');
+    font-weight: 700;
+    font-style: normal;
+  }
+}
 
 :root {
   /* COLORS */
@@ -86,7 +128,9 @@ a {
   font-style: normal;
 }
 
-.bold1 {
+
+
+/* .bold1 {
   font-weight: 500;
   font-size: 15px;
 }
@@ -95,11 +139,6 @@ a {
   font-weight: 300;
   font-size: 18px;
 
-}
-
-.p2 {
-  font-weight: 300;
-  font-size: 13px;
 }
 
 .h2 {
@@ -121,9 +160,95 @@ a {
 .boldButton{
   font-size: 22px;
   font-weight: 500;
-}
+} */
 
+
+
+
+/* NEW STYLING STUFF */
+
+/* NAVIGATION, HEADER AND FOOTER */
 .navigationLink{
   font-size: 19px;
   font-weight: 200;
+}
+.navigationLinkSelected {
+  font-size: 19px;
+  font-weight: 300;
+  color: var(--electric-blue);
+}
+
+.navigationContact{
+  font-size: 19px;
+  font-weight: 300;
+}
+
+/* TILES */
+
+.title1 {
+  font-weight: 100;
+  font-size: 3.25rem;
+}
+
+.title2{
+  font-weight: 100;
+  font-size: 3.25rem;
+  margin-bottom: var(--small-space);
+}
+
+.title3{
+  font-weight: 100;
+  font-size: 2.75rem;
+}
+
+.title4{
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* P */
+.p{
+  font-size: 1.125rem;
+}
+
+.pBoldBlue {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--electric-blue);
+}
+
+.ctaP{
+  font-size: 3.48rem;
+  color: var(--electric-blue);
+  font-weight: 100;
+}
+
+.p2 {
+  font-weight: 300;
+  font-size: 1rem;
+} 
+
+.pLink{
+  text-decoration: underline;
+  font-size: 1.125rem;
+  color: var(--electric-blue);
+}
+
+.pToc{
+  font-size: 1.125rem;
+  color: VAR(--electric-blue)
+}
+
+
+/* BUTTONS */
+.button1P {
+  font-size: 1.5rem;
+  color: var(--electric-blue);
+  font-weight: 500;
+}
+
+.button2P {
+  font-size: 1.5rem;
+  color: var(--electric-blue);
+  font-weight: 300;
 }

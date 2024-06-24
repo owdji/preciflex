@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import '../styles/ContactSection.css';
@@ -44,6 +44,16 @@ const ContactSection = ({circleColor = 'circleGray', textColor = 'textBlue', num
             y: 0,
           });
         }
+
+        // let lastValue = mousePosition.x;
+        // setInterval(() => {
+        //   if(mousePosition.x === lastValue){
+        //     gsap.to(circle, {
+        //       x: 0,
+        //       y: 0,
+        //     });
+        //   }
+        // }, 500);
       }
       );
 

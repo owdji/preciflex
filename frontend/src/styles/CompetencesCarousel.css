@@ -1,49 +1,31 @@
-.competenceTitleSelected{
-    color: var(--electric-blue);
-    font-weight: 500;
-}
-
 .comptencesTitle{
     display: flex;
     flex-direction: row;
     width: 80%;
     max-width: 1000px;
     justify-content: space-between;
-    margin-top: var(--small-space);
     margin-bottom: 10px;
     cursor: pointer;
 }
 
-.competencesCarousel {
-    display: flex;
+.carouselbox {
     border: 1px solid #000;
-    
-    max-height: 300px;
-    margin-bottom: var(--section-space);
 }
 
-.competencesCarouselDescription{
-    padding: var(--small-space);
-}
-
-.comptencesCarouselLink{
-    padding-left: var(--small-space);
-    padding-bottom: var(--small-space);
-    text-decoration: underline;
-    text-underline-offset: 4px; 
-
-    font-size: 18px;
-    color: var(--electric-blue);
-    font-weight: 300;
-}
-
-.competencesCarouselTitle{
+.carouselTitle{
     border-bottom: 1px solid #000;
     padding: var(--small-space)
 }
 
+.carouselDescription{
+    padding-left: var(--small-space);
+    padding-right: var(--small-space);
+    padding-bottom: var(--small-space);
+
+}
+
 .comptenceCarouselImage{
     object-fit: cover;
-    width: 45%;
+    height: 100%;
     border-left: 1px solid #000;
 }

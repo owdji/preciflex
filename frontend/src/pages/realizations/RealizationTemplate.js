@@ -54,21 +54,23 @@ const RealizationTemplate = () => {
   const realization = data.realization.data
   console.log('DATA :', data)
   console.log('REALIZATION :', realization)
+  
   return (
     <div className='realizationTemplate'>
-      <div className='realizationTemplateHero'>
-        <div>
-          <h1 className='realizationTemplatemainTitle'>{realization.attributes.title}</h1>
-          <div className='realizationTemplateTableOfContents'>
+      <div className='grid grid-cols-6 h-screen content-center'>
+        <div className='col-span-2'>
+          <h1 className='title1'>{realization.attributes.title}</h1>
+          {/* <div className='fixed left-0 top-0 h-full w-1/4 p-4'> */}
+          <div className=''>
           {tableOfContents.map((title, index) => {
             return (
-              <a key={index} href={`#${title.replace(/\s+/g, '-').replace(/^-/, '').toLowerCase()}`}>{title} <br/></a>
+              <a key={index} href={`#${title.replace(/\s+/g, '-').replace(/^-/, '').toLowerCase()}`} className='pToc'>{title} <br/></a>
             )
           })}
           </div>
         </div>
 
-        <img src={`http://localhost:1337${realization.attributes.banner.data.attributes.url}`} className='realizationTemplateImage'/>
+        <img src={`http://localhost:1337${realization.attributes.banner.data.attributes.url}`} className='col-span-4 realizationTemplateBanner'/>
       </div>
       <div className='realizationTemplateContent'>
         <ReactMarkdown>

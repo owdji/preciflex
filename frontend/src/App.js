@@ -28,7 +28,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Homepage />} />
             <Route path="/medtech" element={<MedtechHomepage />} />
-            <Route path="/luxury" element={<LuxuryHomepage />}>
+            <Route path="/luxury" element={<LuxuryWrapper />}>
               <Route path="hyt" element={<Hyt />} />
               <Route path=':id' element={<RealizationTemplate/>}/>
             </Route>

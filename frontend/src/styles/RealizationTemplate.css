@@ -3,45 +3,28 @@
     margin-right: 43px;
 }
 
+.realizationTemplateBanner{
+    object-fit: cover;
+    height: 100%;
+}
 
 .realizationTemplateContent {
     width: 80%;
     max-width: 828px;
-    margin: 0 auto; /* Centrer horizontalement */
-    padding: 20px; /* Optionnel: ajouter du padding pour une meilleure apparence */
+    margin: 0 auto; 
+    padding: 20px;
 
     font-family: 'NeueHaasGrotesk', sans-serif;
 } 
 
-.realizationTemplateHero {
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    /* align-items: center; */
-    justify-content: space-between;
-}
-
-.realizationTemplatemainTitle {
-    font-size: 55px;
-}
-
-.realizationTemplateTableOfContents {    position: sticky;
-    top: var(--section-space);
-}
-
-.realizationTemplateImage{
-    width: 68%;
-    height: 300px;
-    object-fit: cover;
-}
-
-.realizationPageContent h1 {
+.realizationTemplateContent h1 {
     font-size: 47px;
-    /* line-height: 1.9; */
+    font-weight: 100;
     color: var(--electric-blue)
 }
 
-.realizationPageContent img {
+
+.realizationTemplateContent img {
     width: 90%;
     max-width: 944px;
     height: auto;
@@ -49,7 +32,8 @@
     margin-bottom: var(--small-space);
 }
 
-.realizationPageContent p {
+.realizationTemplateContent p {
+    font-size: 1.4rem;
     color: var(--black);
     margin-bottom: var(--section-space);
 }

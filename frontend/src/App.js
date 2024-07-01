@@ -27,8 +27,10 @@ function App() {
           <Header />
           <Routes>
             <Route exact path="/" element={<Homepage />} />
+            <Route exact path="/homePage" element={<Homepage />} />
             <Route path="/medtech" element={<MedtechHomepage />} />
             <Route path="/luxury" element={<LuxuryWrapper />}>
+              <Route index element={<LuxuryHomepage />} />
               <Route path="hyt" element={<Hyt />} />
               <Route path=':id' element={<RealizationTemplate/>}/>
             </Route>

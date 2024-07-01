@@ -1,0 +1,21 @@
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  height: 500px;
+  transition: background-color 0.3s, color 0.3s; /* Transition for background-color and color */
+}
+
+.serviceCard:hover {
+  background-color: var(--electric-blue);
+  color: white;
+}
+
+.serviceCard img {
+  transition: filter 0.3s; /* Transition for filter property on image */
+}
+
+.serviceCard:hover img {
+  filter: brightness(0) invert(1); /* This inverts the colors to turn the SVG white */
+}

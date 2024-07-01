@@ -193,7 +193,7 @@ a {
 .title2{
   font-weight: 100;
   font-size: 3.25rem;
-  margin-bottom: var(--small-space);
+  /* margin-bottom: var(--small-space); */
 }
 
 .title3{
@@ -236,9 +236,13 @@ a {
 
 .pToc{
   font-size: 1.125rem;
-  color: VAR(--electric-blue)
+  color: var(--electric-blue)
 }
 
+.pToc2{
+  font-size: 1.125rem;
+  color: var(--black);
+}
 
 /* BUTTONS */
 .button1P {

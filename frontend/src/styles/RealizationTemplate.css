@@ -9,31 +9,55 @@
 }
 
 .realizationTemplateContent {
-    width: 80%;
-    max-width: 828px;
-    margin: 0 auto; 
+    /* max-width: 828px; */
     padding: 20px;
 
     font-family: 'NeueHaasGrotesk', sans-serif;
 } 
 
+
 .realizationTemplateContent h1 {
     font-size: 47px;
     font-weight: 100;
-    color: var(--electric-blue)
+    color: var(--electric-blue);
+    margin-top: var(--section-space)
 }
 
-
-.realizationTemplateContent img {
-    width: 90%;
-    max-width: 944px;
-    height: auto;
-    margin-top: var(--small-space);
-    margin-bottom: var(--small-space);
+.realizationTemplateContent h2 {
+    font-size: 40px; 
+    font-weight: 100;
+    color: var(--black);
+    margin-top: var(--section-space);
 }
 
 .realizationTemplateContent p {
     font-size: 1.4rem;
     color: var(--black);
-    margin-bottom: var(--section-space);
+    margin-bottom: var(--small-space);
+}
+
+
+.realizationTemplateContent h1,
+.realizationTemplateContent h2,
+.realizationTemplateContent h3,
+.realizationTemplateContent p {
+    display: grid;
+    grid-column-start: 3;
+    grid-column-end: 11;
+}
+
+.realizationTemplateContent p {
+    display: grid;
+}
+
+.realizationTemplateContent img {
+    max-height: 500px;
+    object-fit: cover;
+    /* display: grid;
+    grid-column-start: 2;
+    grid-column-end: 12; */
+
+    width: 100%;
+    margin-top: var(--small-space);
+    margin-bottom: var(--small-space);
 }

@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import ReactMarkdown from 'react-markdown'
 import '../../styles/RealizationTemplate.css'
+import TableOfContent from '../../components/TableOfContent'
 
 const REALIZATION = gql`
 query getRealization($id: ID!) {
@@ -52,8 +53,6 @@ const RealizationTemplate = () => {
   if (error) return <div>Error: {error.message}</div>
 
   const realization = data.realization.data
-  console.log('DATA :', data)
-  console.log('REALIZATION :', realization)
   
   return (
     <div className='realizationTemplate'>
@@ -62,21 +61,20 @@ const RealizationTemplate = () => {
           <h1 className='title1'>{realization.attributes.title}</h1>
           {/* <div className='fixed left-0 top-0 h-full w-1/4 p-4'> */}
           <div className=''>
-          {tableOfContents.map((title, index) => {
-            return (
-              <a key={index} href={`#${title.replace(/\s+/g, '-').replace(/^-/, '').toLowerCase()}`} className='pToc'>{title} <br/></a>
-            )
-          })}
+          <TableOfContent/>
           </div>
         </div>
 
         <img src={`http://localhost:1337${realization.attributes.banner.data.attributes.url}`} className='col-span-4 realizationTemplateBanner'/>
       </div>
-      <div className='realizationTemplateContent'>
-        <ReactMarkdown>
-          {realization.attributes.realizationPageContent}
-        </ReactMarkdown>
+      <div>
+      <div className='grid grid-cols-12 realizationTemplateContent'>
+          <ReactMarkdown>
+            {realization.attributes.realizationPageContent}
+          </ReactMarkdown>
       </div>
+      </div>
+
     </div>
   )
 }

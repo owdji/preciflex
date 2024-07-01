@@ -362,162 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiHomePageHomePage extends Schema.SingleType {
-  collectionName: 'home_pages';
-  info: {
-    singularName: 'home-page';
-    pluralName: 'home-pages';
-    displayName: 'Home page';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    companyDescription: Attribute.Text &
-      Attribute.Required &
-      Attribute.DefaultTo<'We specialize in turning groundbreaking ideas into precision-engineered\u00A0 products. Our multidisciplinary teams have led microengineering advances serving medical and luxury industries'>;
-    luxuryImage: Attribute.Media<'images'> & Attribute.Required;
-    medtechImage: Attribute.Media<'images'> & Attribute.Required;
-    realizations: Attribute.Relation<
-      'api::home-page.home-page',
-      'oneToMany',
-      'api::realization.realization'
-    >;
-    services: Attribute.Component<'services.services', true> &
-      Attribute.SetMinMax<
-        {
-          min: 4;
-          max: 4;
-        },
-        number
-      >;
-    competences: Attribute.Component<'competences.competences', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::home-page.home-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::home-page.home-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiRealizationRealization extends Schema.CollectionType {
-  collectionName: 'realizations';
-  info: {
-    singularName: 'realization';
-    pluralName: 'realizations';
-    displayName: 'Realization';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Attribute.SetMinMaxLength<{
-        maxLength: 30;
-      }>;
-    industry: Attribute.Enumeration<['luxury', 'medtech']> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    services: Attribute.JSON &
-      Attribute.Required &
-      Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        ['Ideation', 'R&D', 'Industrialization', 'Production']
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    competences: Attribute.JSON &
-      Attribute.Required &
-      Attribute.CustomField<
-        'plugin::multi-select.multi-select',
-        [
-          'Custom liquids',
-          'Liquid handling',
-          'Coating & sealing',
-          'Electronics',
-          'Optical system',
-          'Industrial design'
-        ]
-      > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    productImage: Attribute.Media<'images'> &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    realizationPageContent: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    banner: Attribute.Media<'images'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::realization.realization',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::realization.realization',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::realization.realization',
-      'oneToMany',
-      'api::realization.realization'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -944,6 +788,325 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCompetencesPageCompetencesPage extends Schema.SingleType {
+  collectionName: 'competences_pages';
+  info: {
+    singularName: 'competences-page';
+    pluralName: 'competences-pages';
+    displayName: 'Competences page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'Competences'>;
+    description: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::competences-page.competences-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::competences-page.competences-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::competences-page.competences-page',
+      'oneToMany',
+      'api::competences-page.competences-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiHomePageHomePage extends Schema.SingleType {
+  collectionName: 'home_pages';
+  info: {
+    singularName: 'home-page';
+    pluralName: 'home-pages';
+    displayName: 'Home page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    companyDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.DefaultTo<'We specialize in turning groundbreaking ideas into precision-engineered\u00A0 products. Our multidisciplinary teams have led microengineering advances serving medical and luxury industries'>;
+    luxuryImage: Attribute.Media<'images'> & Attribute.Required;
+    medtechImage: Attribute.Media<'images'> & Attribute.Required;
+    realizations: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToMany',
+      'api::realization.realization'
+    >;
+    services: Attribute.Component<'services.services', true> &
+      Attribute.SetMinMax<
+        {
+          min: 4;
+          max: 4;
+        },
+        number
+      >;
+    competences: Attribute.Component<'competences.competences', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLuxuryHomePageLuxuryHomePage extends Schema.SingleType {
+  collectionName: 'luxury_home_pages';
+  info: {
+    singularName: 'luxury-home-page';
+    pluralName: 'luxury-home-pages';
+    displayName: 'Luxury home page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    companyDescription: Attribute.Text &
+      Attribute.Required &
+      Attribute.DefaultTo<'Lorem ipsum dolor sit amet consectetur. Vitae vulputate egestas vitae velit egestas amet non pellentesque. Risus urna tellus platea mattis elit consequat. '>;
+    luxuryImage: Attribute.Media<'images'> & Attribute.Required;
+    services: Attribute.Component<'services.services', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 4;
+          max: 4;
+        },
+        number
+      >;
+    competences: Attribute.Component<'competences.competences', true>;
+    realizations: Attribute.Relation<
+      'api::luxury-home-page.luxury-home-page',
+      'oneToMany',
+      'api::realization.realization'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::luxury-home-page.luxury-home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::luxury-home-page.luxury-home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMedtechHomePageMedtechHomePage extends Schema.SingleType {
+  collectionName: 'medtech_home_pages';
+  info: {
+    singularName: 'medtech-home-page';
+    pluralName: 'medtech-home-pages';
+    displayName: 'Medtech home page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    companyDescription: Attribute.Text & Attribute.Required;
+    medtechImage: Attribute.Media<'images'> & Attribute.Required;
+    services: Attribute.Component<'services.services', true> &
+      Attribute.SetMinMax<
+        {
+          min: 4;
+          max: 4;
+        },
+        number
+      >;
+    competences: Attribute.Component<'competences.competences', true> &
+      Attribute.Required;
+    realizations: Attribute.Relation<
+      'api::medtech-home-page.medtech-home-page',
+      'oneToMany',
+      'api::realization.realization'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::medtech-home-page.medtech-home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::medtech-home-page.medtech-home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRealizationRealization extends Schema.CollectionType {
+  collectionName: 'realizations';
+  info: {
+    singularName: 'realization';
+    pluralName: 'realizations';
+    displayName: 'Realization';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMaxLength<{
+        maxLength: 30;
+      }>;
+    industry: Attribute.Enumeration<['luxury', 'medtech']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    services: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Ideation', 'R&D', 'Industrialization', 'Production']
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    competences: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Custom liquids',
+          'Liquid handling',
+          'Coating & sealing',
+          'Electronics',
+          'Optical system',
+          'Industrial design'
+        ]
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    productImage: Attribute.Media<'images'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    realizationPageContent: Attribute.RichText &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    banner: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::realization.realization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::realization.realization',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::realization.realization',
+      'oneToMany',
+      'api::realization.realization'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -954,8 +1117,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::home-page.home-page': ApiHomePageHomePage;
-      'api::realization.realization': ApiRealizationRealization;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -964,6 +1125,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::competences-page.competences-page': ApiCompetencesPageCompetencesPage;
+      'api::home-page.home-page': ApiHomePageHomePage;
+      'api::luxury-home-page.luxury-home-page': ApiLuxuryHomePageLuxuryHomePage;
+      'api::medtech-home-page.medtech-home-page': ApiMedtechHomePageMedtechHomePage;
+      'api::realization.realization': ApiRealizationRealization;
     }
   }
 }

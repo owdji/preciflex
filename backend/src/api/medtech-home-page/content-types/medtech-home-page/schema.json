@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "medtech_home_pages",
+  "info": {
+    "singularName": "medtech-home-page",
+    "pluralName": "medtech-home-pages",
+    "displayName": "Medtech home page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "companyDescription": {
+      "type": "text",
+      "required": true
+    },
+    "medtechImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "services": {
+      "type": "component",
+      "repeatable": true,
+      "component": "services.services",
+      "max": 4,
+      "min": 4
+    },
+    "competences": {
+      "type": "component",
+      "repeatable": true,
+      "component": "competences.competences",
+      "required": true
+    },
+    "realizations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::realization.realization"
+    }
+  }
+}

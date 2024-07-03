@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ProductCard from '../components/ProductCard'
 import { useQuery, gql } from '@apollo/client'
 import '../styles/Homepage.css'
@@ -82,12 +82,12 @@ query getHomePage {
 const Homepage = () => {
   const { data, error, loading } = useQuery(HOMPAGE)
 
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>Error: {error.message}</div>
 
   const realizations = data.homePage.data.attributes.realizations.data
   const content = data.homePage.data.attributes
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error: {error.message}</div>
   return (
     <div className='homePage grid grid-cols-6 gap-4'>
       {/* <Style/> */}

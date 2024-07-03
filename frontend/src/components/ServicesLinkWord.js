@@ -11,8 +11,8 @@ const ServicesLinkWord = ({word, icon, link}) => {
         if (hover) {
           gsap.to(servicesIcon.current, {
             x: 0,
-            y: -40,
-            duration: 1,
+            y: -40, 
+            duration: 1, 
             ease: 'power3.out',
             // paused: true
           });

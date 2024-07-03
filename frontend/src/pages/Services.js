@@ -1,38 +1,99 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
-import '../styles/Services.css'
-import { useGSAP } from '@gsap/react'
+import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import ServicesLinkWord from '../components/ServicesLinkWord';
+import { useQuery, gql } from '@apollo/client';
+import '../styles/Services.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
+const SERVICESPAGE = gql`
+  query getServicesPage {
+    servicesPage {
+      data {
+        attributes {
+          ideation {
+            step
+            stepDescription
+          }
+          rAndD {
+            step
+            stepDescription
+          }
+        }
+      }
+    }
+  }
+`
 const Services = () => {
-  const [hover, setHover] = useState(false)
-  
-  // useGSAP(() => {
-  //   if (hover) {
-  //     gsap.to('.servicesIcon', {
-  //       x: 0,
-  //       y: -40,
-  //       duration: 1,
-  //       ease: 'power3.out',
-  //       // paused: true
-  //     });
-  //   } else {
-  //     console.log('animation REVERSE')
-  //     gsap.to('.servicesIcon', {
-  //       x: 0,
-  //       y: 0,
-  //       duration: 1,
-  //       ease: 'power3.out',
-  //       // paused: true
-  //     });
-  //   }
-  // }
-  // , {dependencies: [hover]})
+  const { data, error, loading } = useQuery(SERVICESPAGE)
+const [rerender, setRerender] = useState(false)
 
+
+useEffect(() => {
+  const timer = setTimeout(() => setRerender(true), 500);
+  return () => clearTimeout(timer);
+}, data);
+   
+  //LE PROBLEME DU REREND VIENT SUREMENT DE CA
+  const stepTexts = document.querySelectorAll('.stepText')
+  const paragraphTexts = document.querySelectorAll('.paragraphText')
+  useGSAP(() => {
+    //change color to blue
+    stepTexts.forEach(stepText => {
+      gsap.fromTo(stepText, 
+        {
+          color: '#000000', 
+        },
+        {
+        color: '#006EEB', 
+        opacity: 1,
+        duration: 0.2,
+        scrollTrigger: {
+          trigger: stepText,
+          toggleActions: 'restart reverse play reverse',  
+          start: 'top center',
+          end: 'bottom 40%',
+          markers: true,    
+         },  
+      })      
+    })  
+
+    let i = 0; 
+    paragraphTexts.forEach(paragraphText => {
+      gsap.fromTo(paragraphText, 
+        {
+          opacity: 0, 
+        },
+        {
+        color: '#000000', 
+        opacity: 1,
+        duration: 0.2,
+        scrollTrigger: { 
+          trigger: stepTexts[i],
+          toggleActions: 'restart reverse play reset',  
+          start: 'top center',
+          end: 'bottom 42%',
+          markers: false,   
+         },  
+      })
+      i++
+    }
+    )
+  },null)  
+     
+ 
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>
+
+  const content = data.servicesPage.data
+  const ideation = content.attributes.ideation
+  const rAndD = content.attributes.rAndD
 
   return (
     <div className='homePage'>
-      <div className='h-screen'>
+      <div className='h-screen flex justify-center items-center'>
         <h1 className='title1 servicesTitle'>
           At Preciflex, we support our clients through every step of the process, from &nbsp; 
           <ServicesLinkWord 
@@ -44,7 +105,6 @@ const Services = () => {
 
 
           &nbsp; and &nbsp;
-          <span onMouseEnter={() => setHover(true) } onMouseLeave={() => setHover(false)} className='text-container'>
           <ServicesLinkWord 
           word={'R&D'} 
           icon={(<svg className='servicesIcon' width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +123,6 @@ const Services = () => {
             </defs>
           </svg> )}
           />
-          </span>
 
           &nbsp; to &nbsp; 
           <ServicesLinkWord word={'industrialization'} 
@@ -84,6 +143,18 @@ const Services = () => {
           or at any specific stage they need.
         </h1>
       </div>
+
+      <div className='serviceContainer grid grid-cols-6'>
+        {ideation.map((item, index) => (
+          <div key={index} className='descriptionAndStep col-span-4 col-start-2'>
+              <p className='paragraphText'>{item.stepDescription}</p>
+              <p className='stepText col-span-1'>{item.step}</p>
+          </div>
+        ))}
+      </div>
+      
+      
+
     </div>
   )
 }

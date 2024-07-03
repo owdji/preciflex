@@ -1,0 +1,20 @@
+/* background image  */
+.fluidicTechHero{
+    background-image: url('../assets/fluidic-tech-hero-picture.png');
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.fluidicTechCircle{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    background-color: #DEDEDE;
+    mix-blend-mode: color-dodge;
+}

@@ -1107,6 +1107,39 @@ export interface ApiRealizationRealization extends Schema.CollectionType {
   };
 }
 
+export interface ApiServicesPageServicesPage extends Schema.SingleType {
+  collectionName: 'services_pages';
+  info: {
+    singularName: 'services-page';
+    pluralName: 'services-pages';
+    displayName: 'Services page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ideation: Attribute.Component<'services.steps-for-services-page', true>;
+    rAndD: Attribute.Component<'services.steps-for-services-page', true> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::services-page.services-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::services-page.services-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1130,6 +1163,7 @@ declare module '@strapi/types' {
       'api::luxury-home-page.luxury-home-page': ApiLuxuryHomePageLuxuryHomePage;
       'api::medtech-home-page.medtech-home-page': ApiMedtechHomePageMedtechHomePage;
       'api::realization.realization': ApiRealizationRealization;
+      'api::services-page.services-page': ApiServicesPageServicesPage;
     }
   }
 }

@@ -21,14 +21,6 @@ query getCompetencesPage {
 
 const Competences = () => {
   const {data, error, loading} = useQuery(COMPETENCEPAGE)
-  // const [tableOfContents, setTableOfContents] = useState([])
-
-  // useEffect(() => {
-  //   console.log('querryselector', document.querySelectorAll('h1, h2, h3, h4, h5, h6'))
-  //   setTableOfContents(createToc(document.querySelectorAll('h1, h2, h3, h4, h5, h6')))
-  //   console.log('TOC FROM COMPETENCES', tableOfContents)
-  // }, [data]);
-  // console.log('TOC FROM COMPETENCES', tableOfContents)
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>

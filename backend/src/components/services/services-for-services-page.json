@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_services_services_for_services_pages",
+  "info": {
+    "displayName": "Services for services page"
+  },
+  "options": {},
+  "attributes": {
+    "step": {
+      "type": "string",
+      "required": true
+    },
+    "stepDescription": {
+      "type": "text"
+    }
+  }
+}

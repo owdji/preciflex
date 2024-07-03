@@ -3,7 +3,6 @@
     line-height: 2;
 }
 
-
 .text-container {
     position: relative;
     display: inline-block;
@@ -11,10 +10,9 @@
 
   .servicesIcon {
     position: absolute;
-    /* background-color: orange; */
     bottom: 20px;
     /* place it in the middle */
-    left: 35%;
+    left: 40%;
     z-index: -100;
   }
   
@@ -26,19 +24,68 @@
     cursor: pointer;
 }
 
-.serviceTitleLink::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -2px; /* Adjust this value based on how far you want the underline from the text */
-    width: 0;
-    height: 2px; /* Adjust this value based on how thick you want the underline */
-    transition: width 0.3s ease-in-out; /* Adjust the duration and timing function as desired */
-}
-
 .serviceTitleLink:hover {
-    width: 100%;
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
 }
+/* ------------------------------ */
+
+.stepText{
+  font-size: 40px;
+}
+
+/* hard stuff */
+ /* .serviceContainer{
+  display: flex;
+  justify-content: space-around;
+ }
+
+ .paragraphsContainer{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+ }
+
+ .stepsContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+.oneParagraph{
+  z-index: 100;
+}
+
+.stepsChildContainer{
+  position: sticky;
+  top: 50vh;
+}
+
+
+.paragraphText{
+  position: sticky;
+  top: 50vh;
+} */
+
+
+/* V2 */
+.serviceContainer{
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+}
+
+
+.descriptionAndStep{
+  /* width: 70%; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paragraphText{
+  width: 70%;
+  /* position: relative; */
+}
+
+/* ----------------------------- */

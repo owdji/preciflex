@@ -40,7 +40,6 @@ export default function ThreeDimensionCarousel({realizations}) {
 
                         <h3 className='pBoldBlue'>Description</h3>
                         <p className='p'>{realizations[current].attributes.description}</p>
-
                     </div>
                 </div>
                 
@@ -49,7 +48,7 @@ export default function ThreeDimensionCarousel({realizations}) {
                         <Environment preset="studio"  />                
                         <ambientLight />
 
-                        <ModuleFluidique position={[0,0,0]} scale={[100,100,100]}/>
+                        <ModuleFluidique position={[0,0,0]} scale={[100,100,100]} look={true}/>
                     </Canvas>
                 </div>
 

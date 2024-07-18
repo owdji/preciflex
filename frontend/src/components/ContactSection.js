@@ -10,7 +10,8 @@ const ContactSection = ({circleColor = 'circleGray', textColor = 'textBlue', num
     const numberOfCircles2 = Array.from({ length: 16 });
 
     useGSAP(() => {
-
+      let resetTimerId;
+      
       gsap.utils.toArray('.circle').forEach((circle) => {
         //1. calculer la distance relative entre le centre du cercle et la souris
         const circleRect = circle.getBoundingClientRect();
@@ -45,15 +46,18 @@ const ContactSection = ({circleColor = 'circleGray', textColor = 'textBlue', num
           });
         }
 
-        // let lastValue = mousePosition.x;
-        // setInterval(() => {
-        //   if(mousePosition.x === lastValue){
-        //     gsap.to(circle, {
-        //       x: 0,
-        //       y: 0,
-        //     });
-        //   }
-        // }, 500);
+          // Clear the existing timer if the mouse is still moving
+  clearTimeout(resetTimerId);
+
+  // Start a new timer to reset the circles' positions after 500ms
+        resetTimerId = setTimeout(() => {
+          gsap.utils.toArray('.circle').forEach((circle) => {
+            gsap.to(circle, {
+              x: 0,
+              y: 0,
+            });
+          });
+        }, 500);
       }
       );
 

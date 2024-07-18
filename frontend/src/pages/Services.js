@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
 import ServicesLinkWord from '../components/ServicesLinkWord';
 import { useQuery, gql } from '@apollo/client';
 import '../styles/Services.css'
+import PreciflexButton from '../components/PreciflexButton';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -28,19 +29,27 @@ const SERVICESPAGE = gql`
 `
 const Services = () => {
   const { data, error, loading } = useQuery(SERVICESPAGE)
-const [rerender, setRerender] = useState(false)
+  const [rerender, setRerender] = useState(false)
 
+  //NAVIGATION STUFF
+  const ideationRef = useRef(null)
+  const rAndDRef = useRef(null)
+  
+  const scrollToService = (ref) => {
+    ref.current.scrollIntoView({behavior: 'smooth', block: 'start'})
+  }
 
+  //ANIMATION STUFF
 useEffect(() => {
   const timer = setTimeout(() => setRerender(true), 500);
   return () => clearTimeout(timer);
 }, data);
-   
   //LE PROBLEME DU REREND VIENT SUREMENT DE CA
   const stepTexts = document.querySelectorAll('.stepText')
   const paragraphTexts = document.querySelectorAll('.paragraphText')
+  const serviceContainer = document.querySelectorAll('.serviceContainer')
+
   useGSAP(() => {
-    //change color to blue
     stepTexts.forEach(stepText => {
       gsap.fromTo(stepText, 
         {
@@ -54,8 +63,8 @@ useEffect(() => {
           trigger: stepText,
           toggleActions: 'restart reverse play reverse',  
           start: 'top center',
-          end: 'bottom 40%',
-          markers: true,    
+          end: 'bottom center',
+          markers: false ,    
          },  
       })      
     })  
@@ -74,15 +83,34 @@ useEffect(() => {
           trigger: stepTexts[i],
           toggleActions: 'restart reverse play reset',  
           start: 'top center',
-          end: 'bottom 42%',
+          end: 'bottom center',
           markers: false,   
          },  
       })
       i++
     }
     )
+
+    //only show one by time
+    serviceContainer.forEach((service => {
+      gsap.fromTo(service, 
+        {
+          opacity: 0, 
+        },
+        {
+        color: '#000000', 
+        opacity: 1,
+        duration: 0.2,
+        scrollTrigger: { 
+          trigger: service,
+          toggleActions: 'restart reverse play reset',  
+          start: 'top center',
+          end: 'bottom center',
+          markers: false,   
+         },  
+      })
+    }))
   },null)  
-     
  
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error: {error.message}</p>
@@ -93,7 +121,7 @@ useEffect(() => {
 
   return (
     <div className='homePage'>
-      <div className='h-screen flex justify-center items-center'>
+      <div className='h-screen flex flex-col justify-center items-center'>
         <h1 className='title1 servicesTitle'>
           At Preciflex, we support our clients through every step of the process, from &nbsp; 
           <ServicesLinkWord 
@@ -142,19 +170,34 @@ useEffect(() => {
             )}/>, 
           or at any specific stage they need.
         </h1>
+        <PreciflexButton value='Discover more' icon='bottomArrow' bold />
       </div>
 
-      <div className='serviceContainer grid grid-cols-6'>
-        {ideation.map((item, index) => (
-          <div key={index} className='descriptionAndStep col-span-4 col-start-2'>
-              <p className='paragraphText'>{item.stepDescription}</p>
-              <p className='stepText col-span-1'>{item.step}</p>
+      <div className='w-[100%] flex flex-col items-center'>
+        <div className='servicesNavigation'>
+          <p onClick={() => scrollToService(ideationRef)}>Ideation</p>
+          <p onClick={() => scrollToService(rAndDRef)}>R&D</p>
+          <p>Industrialization</p>
+          <p>Production</p>
+        </div>
+        <div id='#ideation' ref={ideationRef} className='serviceContainer grid grid-cols-6'>
+          {ideation.map((item, index) => (
+            <div key={index} className='descriptionAndStep col-span-4 col-start-2'>
+                <p className='paragraphText'>{item.stepDescription}</p>
+                <p className='stepText col-span-1'>{item.step}</p>
+            </div>
+          ))}
+        </div>
+        <div className='sectionSpace'></div>
+        <div id='#R&D' ref={rAndDRef} className='serviceContainer grid grid-cols-6'>
+          {rAndD.map((item, index) => (
+            <div key={index} className='descriptionAndStep col-span-4 col-start-2'>
+                <p className='paragraphText'>{item.stepDescription}</p>
+                <p className='stepText col-span-1'>{item.step}</p>
+            </div>
+          ))}
           </div>
-        ))}
       </div>
-      
-      
-
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-import '../../styles/FluidicTech.css';
+import '../../styles/LightTech.css';
 
 const LightTech = () => {
   const circleRef = useRef(null);
@@ -21,8 +21,8 @@ const LightTech = () => {
 
   return (
     <div>
-      <div className='h-screen fluidicTechHero' onMouseMove={handleMove}>
-        <div className='fluidicTechCircle' ref={circleRef}></div>
+      <div className='h-screen lightTechHero' onMouseMove={handleMove}>
+        <div className='lightTechCircle' ref={circleRef}></div>
         <h1 className='title1 text-white'>Light Technologies</h1>
         <p className='title4 text-white'>PRECIFLEX</p>
       </div>

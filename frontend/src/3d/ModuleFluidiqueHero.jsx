@@ -6,14 +6,45 @@ import { useThree } from '@react-three/fiber'
 import { useGSAP } from '@gsap/react'
 import { gsap } from 'gsap'
 
-export function ModuleFluidique(props) {
+export function ModuleFluidiqueHero(props) {
   const { nodes, materials } = useGLTF('/module-fluidique-web-transformed.glb')
-  const modelFluidiqueRef = useRef()
+  const moduleFluidiqueRef = useRef()
 
-    useSmoothLookAt(modelFluidiqueRef, props.look)  
+    useGSAP(() => { 
+      gsap.to(moduleFluidiqueRef.current.rotation, {
+        y: Math.PI,
+        duration: 5,
+        scrollTrigger: {
+          trigger: '.hytContainer',
+          start: 'center center',
+          end: 'bottom center',
+          scrub: 0.5,
+          markers: false,
+        },
+      });
+
+      gsap.fromTo(moduleFluidiqueRef.current.position, {
+          x: -10,
+          y: 0,
+          z: 0,
+        },
+        {
+          x: 10,
+          y: 0,
+          z: 0,
+          scrollTrigger: {
+            trigger: '.hytContainer',
+            start: 'center center',
+            end: 'bottom center',
+            scrub: 0.5,
+          },
+        }
+      );
+  },);  
+ 
 
   return (
-    <group {...props} dispose={null} ref={modelFluidiqueRef}>
+    <group {...props} dispose={null} ref={moduleFluidiqueRef}>
       {/* <mesh geometry={nodxes.BASE001.geometry} material={materials['metal-web']} position={[0, -0.015, 0.002]} rotation={[Math.PI, -0.016, Math.PI]} scale={[0.003, 0.003, 0.007]} /> */}
       <mesh geometry={nodes.BASE001.geometry} material={materials['metal-web']} position={[0, -0.015, 0.002]} rotation={[Math.PI, -0.016, Math.PI]} scale={[0.003, 0.003, 0.007]} />
 

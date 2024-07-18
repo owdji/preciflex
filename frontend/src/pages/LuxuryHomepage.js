@@ -76,7 +76,6 @@ const LuxuryHomepage = () => {
   if (error) return <div>Error: {error.message}</div>
 
   const content = data.luxuryHomePage.data.attributes
-  console.log('LUXURY HOMEPAGE DATA: 🍓🍎🍎', content)
 
 
   return (

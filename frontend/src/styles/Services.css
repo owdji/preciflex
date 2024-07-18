@@ -35,40 +35,23 @@
   font-size: 40px;
 }
 
-/* hard stuff */
- /* .serviceContainer{
+.servicesNavigation{
   display: flex;
+  padding: 10px;
+  margin-bottom: var(--small-space);
   justify-content: space-around;
- }
-
- .paragraphsContainer{
-  display: flex;
-  flex-direction: column;
-  width: 50%;
- }
-
- .stepsContainer{
-  display: flex;
-  flex-direction: column;
-}
-
-.oneParagraph{
+  width: 100%;
+  align-items: center;
+  position: sticky;
+  top: 100px;
+  background-color: white;
   z-index: 100;
+  max-width: 500px;
 }
-
-.stepsChildContainer{
-  position: sticky;
-  top: 50vh;
+/* hard stuff */
+.sectionSpace{
+  margin-top: var(--section-space);
 }
-
-
-.paragraphText{
-  position: sticky;
-  top: 50vh;
-} */
-
-
-/* V2 */
 .serviceContainer{
   /* display: flex; */
   /* flex-direction: column; */
@@ -87,5 +70,4 @@
   width: 70%;
   /* position: relative; */
 }
-
 /* ----------------------------- */

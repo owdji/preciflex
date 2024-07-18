@@ -1,11 +1,12 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 
-const useSmoothLookAt = (modelRef) => {
+const useSmoothLookAt = (modelRef, look) => {
   const targetX = useRef(0);
   const targetY = useRef(0);
 
   useFrame(({ pointer, viewport }) => {
+    if (!look) return;
     const x = (pointer.x * viewport.width) / 2.5;
     const y = (pointer.y * viewport.height) / 2.5;
 

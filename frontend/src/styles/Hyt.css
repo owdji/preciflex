@@ -1,0 +1,51 @@
+.hytCanvas{
+    position: sticky !important;
+    top: 40px !important;
+    width: 100vw !important;
+}
+
+.hytCanavasContainer{
+    height: 100vh;
+    max-height: 500px;
+    position: sticky;
+    top: 30%;
+} 
+
+.hytSquare{
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    z-index: 100;
+}
+
+.hytSelectedSquare{
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    z-index: 100;
+    border: 2px solid var(--electric-blue);
+}
+
+.hytBlueSelectedSquare{
+    height: 30px;
+    width: 30px;
+    margin: 10px;
+    z-index: 100;
+    border: 2px solid black
+}
+
+.hytBlue{
+    background-color: var(--electric-blue);
+}
+
+.hytOrange{
+    background-color: #FFAA46;
+}
+
+.hytRed{
+    background-color: #DC2754;
+}
+
+.hytBlack{
+    background-color: #000000;
+}

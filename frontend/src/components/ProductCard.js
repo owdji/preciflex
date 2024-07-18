@@ -61,6 +61,12 @@ const ProductCard = ({id, title, industry, services, competences, imageUrl}) => 
         }
       }, {dependencies: [mouseOver]});
     
+      //HERE WE ARE CHANGING THE ID OF THE HANDCODED PAGES 
+      //LIKE HYT, FLUIDIC TECH ETC.
+      if (id === '3'){
+        //alors change le id to HYT 
+        id = 'Hyt'
+      }
 
 
   return (

@@ -1,36 +1,42 @@
-import React, { useState } from 'react'
-import '../styles/CompetencesCarousel.css'
+import React, { useState } from "react";
+import "../styles/CompetencesCarousel.css";
 
-const CompetencesCarousel = ({competences}) => {
-    const [current, setCurrent] = useState(0)
+const CompetencesCarousel = ({ competences }) => {
+  const [current, setCurrent] = useState(0);
 
   return (
-    <div className='col-span-6 grid grid-cols-6'>
-        <div className='comptencesTitle col-span-6'>
-            {competences.map((competences, index) => (
-                <p key={index} onClick={() => setCurrent(index)} className={current === index ? 'pBoldBlue' : 'p'}>{competences.competenceTitle}</p>
-            ))}
-        </div>
-        <div className='col-span-6'>
-            <div className='col-span-6 grid grid-cols-6 carouselbox'>
-                <div className='col-span-3'>
-                    <h3 className='col-span-3 title2 carouselTitle'>{competences[current].competenceTitle}</h3>
-                    <div className='col-span-3 carouselDescription'>
-                        <p className='p'>{competences[current].competenceDescription}</p>
-                        <p className='pLink'>See more...</p>
-                    </div>
-                </div>
+    <div className="col-span-6 grid grid-cols-6">
+      <div className="comptencesTitle col-span-6 flex overflow-x-auto space-x-4 hideScrollBar whitespace-nowrap md:whitespace-normal">
+        {competences.map((competence, index) => (
+          <p
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`inline-block ${current === index ? "pBoldBlue" : "p"}`}
+          >
+            {competence.competenceTitle}
+          </p>
+        ))}
+      </div>
 
-                <img src={`http://localhost:1337${competences[current].competenceImage.data.attributes.url}`} className='col-span-3 comptenceCarouselImage'/>
-
-  
+      <div className="col-span-6">
+        <div className="col-span-6 grid grid-cols-1 md:grid-cols-6 carouselbox">
+          <div className="md:col-span-3">
+            <h3 className="title2 carouselTitle">
+              {competences[current].competenceTitle}
+            </h3>
+            <div className="carouselDescription">
+              <p className="p">{competences[current].competenceDescription}</p>
+              <p className="pLink">See more...</p>
             </div>
-
+          </div>
+          <img
+            src={`http://localhost:1337${competences[current].competenceImage.data.attributes.url}`}
+            className="md:col-span-3 order-2 md:order-1 comptenceCarouselImage"
+          />
         </div>
-
+      </div>
     </div>
+  );
+};
 
-  )
-}
-
-export default CompetencesCarousel
+export default CompetencesCarousel;

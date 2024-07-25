@@ -18,6 +18,7 @@
 }
 
 .carouselDescription{
+    padding-top: var(--small-space);
     padding-left: var(--small-space);
     padding-right: var(--small-space);
     padding-bottom: var(--small-space);

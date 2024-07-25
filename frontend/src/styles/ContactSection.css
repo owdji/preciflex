@@ -1,30 +1,29 @@
-.contactSectionContainer{
+/* Basic CSS for circles */
+.contactSectionContainer {
     width: 100%;
 }
 
-.circle{
+.circle {
     height: 4px;
     width: 4px;
     border-radius: 50%;
     margin: 0 auto;
 }
 
-.circleGray{
+.circleGray {
     background-color: var(--gray2);
 }
 
-.circleBlack{
+.circleBlack {
     background-color: var(--black2);
 }
 
-.circleContainer{
+.circleContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-
     height: 50px;
 }
-
 
 .textCircleContainer {
     width: 100%;
@@ -33,17 +32,55 @@
     align-items: center;
 }
 
-.hugeContactUs{
+/* Adjust text size and margins based on screen size */
+.hugeContactUs {
     font-size: 55px;
     font-weight: 100;
     margin-left: 50px;
     margin-right: 50px;
 }
 
-.textBlue{
+.textBlue {
     color: var(--electric-blue);
 }
 
-.textWhite{
+.textWhite {
     color: #D9D9D9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contactSectionContainer {
+        /* Optionally, override animation styles if needed */
+    }
+
+    .circle {
+        /* Adjust circle size or visibility if needed */
+    }
+
+    .circleContainer {
+        /* Adjust circle container for mobile */
+        height: 30px; /* Example adjustment */
+    }
+
+    .textCircleContainer {
+        flex-wrap: wrap; /* Allow text circles to wrap on mobile */
+    }
+
+    .hugeContactUs {
+        font-size: 36px; /* Example adjustment for mobile */
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Tablet styles */
+    .circleContainer {
+        height: 40px; /* Adjust for tablet */
+    }
+
+    .hugeContactUs {
+        font-size: 45px; /* Example adjustment for tablet */
+    }
 }

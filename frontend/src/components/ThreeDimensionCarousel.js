@@ -20,7 +20,7 @@ export default function ThreeDimensionCarousel({realizations}) {
         setCurrent(current + i)
     }
 
-
+    
     return (
         <div>
             {/* insert dots */}

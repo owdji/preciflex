@@ -954,6 +954,7 @@ export interface ApiMedtechHomePageMedtechHomePage extends Schema.SingleType {
     singularName: 'medtech-home-page';
     pluralName: 'medtech-home-pages';
     displayName: 'Medtech home page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -964,7 +965,6 @@ export interface ApiMedtechHomePageMedtechHomePage extends Schema.SingleType {
     services: Attribute.Component<'services.services', true> &
       Attribute.SetMinMax<
         {
-          min: 4;
           max: 4;
         },
         number

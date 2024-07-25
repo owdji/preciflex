@@ -4,7 +4,8 @@
   "info": {
     "singularName": "medtech-home-page",
     "pluralName": "medtech-home-pages",
-    "displayName": "Medtech home page"
+    "displayName": "Medtech home page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,19 +17,18 @@
       "required": true
     },
     "medtechImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "services": {
       "type": "component",
       "repeatable": true,
       "component": "services.services",
-      "max": 4,
-      "min": 4
+      "max": 4
     },
     "competences": {
       "type": "component",

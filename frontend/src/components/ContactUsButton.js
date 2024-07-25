@@ -16,7 +16,7 @@ const containerRef = useRef(null);
       slides: containerRef.current.querySelectorAll('.v-slide'),
       list: containerRef.current.querySelector('.v-slides'),
       duration: 15,
-      lineHeight: 55
+      lineHeight: 30
     };
 
     //création d'un timeline

@@ -1,20 +1,48 @@
 /* background image  */
-.lightTechHero{
-    background-image: url('../assets/fluidic-tech-hero-picture.png');
-    display: flex;
-    flex-direction: column;
+.lightTechHero {
+  background-image: url('../assets/fluidic-tech-hero-picture.png');
+  display: flex;
+  flex-direction: column;
 
-    justify-content: center;
-    align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
-.lightTechCircle{
-    position: absolute;
-    top: 0; 
-    left: 0;
-    height: 200px;
-    width: 200px;
-    border-radius: 100%;
-    background-color: #DEDEDE;
-    mix-blend-mode: color-dodge;
+.lightTechCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  background-color: #DEDEDE;
+  mix-blend-mode: color-dodge;
+}
+
+.lightTech-watch-container{
+  height: 50%;
+  position: sticky;
+  top: 100px;
+  width: 100%;
+}
+
+.lightTech-watch {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  z-index: 1;
+}
+
+.lightTech-darkWatch {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 45%;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  
 }

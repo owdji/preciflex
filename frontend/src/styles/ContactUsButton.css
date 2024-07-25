@@ -22,7 +22,7 @@
 
 
   .v-slider-frame {
-    height: 55px;
+    height: 30px;
     overflow: hidden;
   }
 
@@ -33,7 +33,7 @@
   }
   .v-slide {
     font-size: 24px;
-    line-height: 55px;
+    line-height: 30px;
     color: var(--electric-blue);
   }
   

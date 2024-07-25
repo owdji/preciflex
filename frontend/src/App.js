@@ -14,6 +14,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import LightTech from './pages/realizations/LightTech';
 import FluidicTech from './pages/realizations/FluidicTech';
+import Hulecos from './pages/realizations/Hulecos';
 
 // apollo client
 const client = new ApolloClient({
@@ -36,6 +37,7 @@ function App() {
               <Route path="hyt" element={<Hyt />} />
               <Route path='light-tech' element={<LightTech/>}/>
               <Route path='fluidic-tech' element={<FluidicTech/>}/>
+              <Route path='hulecos' element={<Hulecos/>}/>
               <Route path=':id' element={<RealizationTemplate/>}/>
             </Route>
             <Route path='/services' element={<Services/>}/>

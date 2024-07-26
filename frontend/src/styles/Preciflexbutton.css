@@ -12,6 +12,7 @@
 }
 
 .preciflexButtonThin{
+    margin-top: var(--small-space);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,7 +20,7 @@
     border-bottom: 2px solid var(--electric-blue);
     cursor: pointer;
     min-width: 150px;
-    max-width: 250px;}
+}
 
 .preciflexButton svg{
     height: 25px;
@@ -29,4 +30,5 @@
 .preciflexButtonThin svg{
     height: 20px;
     width: 25px;
+    margin-left: 30px;
 }

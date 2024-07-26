@@ -1,7 +1,6 @@
-.comptencesTitle{
+.competencesTitle{
     display: flex;
     flex-direction: row;
-    width: 80%;
     max-width: 1000px;
     justify-content: space-between;
     margin-bottom: 10px;

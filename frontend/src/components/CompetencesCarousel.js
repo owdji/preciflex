@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "../styles/CompetencesCarousel.css";
+import { Link } from "react-router-dom";
 
 const CompetencesCarousel = ({ competences }) => {
   const [current, setCurrent] = useState(0);
 
   return (
     <div className="col-span-6 grid grid-cols-6">
-      <div className="comptencesTitle col-span-6 flex overflow-x-auto space-x-4 hideScrollBar whitespace-nowrap md:whitespace-normal">
+      <div className="competencesTitle col-span-6 flex overflow-x-auto space-x-4 hideScrollBar whitespace-nowrap md:whitespace-normal">
         {competences.map((competence, index) => (
           <p
             key={index}
@@ -26,7 +27,9 @@ const CompetencesCarousel = ({ competences }) => {
             </h3>
             <div className="carouselDescription">
               <p className="p">{competences[current].competenceDescription}</p>
-              <p className="pLink">See more...</p>
+              <Link to={`competences#${competences[current].competenceTitle.toLowerCase().replace(/\s+/g, '-')}`}>
+                <p className="pLink">See more...</p>
+              </Link>
             </div>
           </div>
           <img

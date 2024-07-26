@@ -2,6 +2,7 @@
     background-color: var(--preciflex-gray);
     padding: 17px;
     height: 400px;
+    margin-right: 20px;
   
     display: flex;
     flex-direction: column;

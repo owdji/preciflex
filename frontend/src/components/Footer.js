@@ -132,10 +132,27 @@ const Footer = () => {
           <NavLink
             to="/contact"
             className={({ isActive }) =>
-              isActive ? "active-link-footer" : "navigationLinkFooter"
+              isActive
+                ? "active-link-footer"
+                : "navigationLinkFooter"
             }
           >
-            Contact
+            {({ isActive }) => (
+              <div className="flex items-center">
+                <p className="mr-3">Contact</p>
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 17 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M1.39502 16.182L16.0977 1.4794M16.0977 1.4794V16.182M16.0977 1.4794H1.39502"
+                    stroke="white"
+                    stroke-width="1.6"/>
+                </svg>
+              </div>
+            )}
           </NavLink>
         </nav>
         <div className="socialMedia">

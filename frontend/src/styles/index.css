@@ -76,6 +76,14 @@
   font-family: var(--neue-haas-grotesk);
 }
 
+@media (max-width: 900px) {
+  :root {
+    --section-space: 60px;
+    --small-space: 25px;
+  }
+}
+
+
 body{
   margin-top: 0px;
   margin-bottom: 0px;
@@ -209,6 +217,7 @@ a {
 /* P */
 .p{
   font-size: 1.125rem;
+  font-weight: 300;
 }
 
 .pBoldBlue {
@@ -270,4 +279,20 @@ a {
 
 .sectionSpace{
   margin-top: var(--section-space);
+}
+
+.smallSpace{
+  margin-top: var(--small-space);
+}
+
+.firstItemPading {
+  padding-top: 100px;
+}
+
+/* reduce first item padding on mobile */
+@media (max-width: 900px) {
+  .firstItemPading {
+      padding-top: 60px;
+  }
+
 }

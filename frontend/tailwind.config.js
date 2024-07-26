@@ -4,6 +4,10 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    screens: {
+      md: '900px',
+      lg: '1100px'
+    },
     extend: {
       colors: {
         'white': '#ffffff',

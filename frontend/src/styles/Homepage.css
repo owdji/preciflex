@@ -3,9 +3,7 @@
     margin-right: 43px;
 }
 
-.firstItemPading {
-    padding-top: 100px;
-}
+
 
 .highlight-imagine, .highlight-make {
     display: inline-block;
@@ -34,4 +32,8 @@
 .productCards{
     display: flex;
     flex-direction: row;
+}
+
+.serviceTitleHover:hover{
+    color: var(--electric-blue)
 }

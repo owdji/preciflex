@@ -8,6 +8,22 @@
   align-items: center;
 }
 
+.lightTech-icons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  z-index: 10; /* Assure que les icônes sont au-dessus des montres */
+}
+
+@media (max-width: 900px) {
+  .lightTech-svg-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+}
+
 .lightTechCircle {
   position: absolute;
   top: 0;
@@ -17,6 +33,12 @@
   border-radius: 100%;
   background-color: #DEDEDE;
   mix-blend-mode: color-dodge;
+}
+.lightTech-watch-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 50%; /* Crée un conteneur carré */
 }
 
 .lightTech-watch-container{
@@ -28,11 +50,11 @@
 
 .lightTech-watch {
   position: absolute;
-
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
+  max-width: 250px;
   z-index: 1;
 }
 
@@ -41,8 +63,21 @@
   top: 50%;
   left: 50%;
   width: 45%;
+  max-width: 230px;
   z-index: 5;
   transform: translate(-50%, -50%);
   opacity: 0;
   
+}
+
+@media (max-width: 900px) {
+  .lightTech-watch {
+    width: 100%;
+    min-width: 100px;
+  }
+
+  .lightTech-darkWatch {
+    width: 90%;
+    min-width: 100px;
+  }
 }

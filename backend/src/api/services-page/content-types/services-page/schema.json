@@ -22,6 +22,9 @@
       "repeatable": true,
       "component": "services.steps-for-services-page",
       "required": true
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }

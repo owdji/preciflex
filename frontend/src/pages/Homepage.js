@@ -8,6 +8,7 @@ import ContactSection from "../components/ContactSection";
 import ProductCards from "../components/ProductCards";
 import { Link } from "react-router-dom";
 import PreciflexButton from "../components/PreciflexButton";
+import ServicesComponent from "../components/ServicesComponent";
 // import Style from '../components/Style'
 
 const HOMPAGE = gql`
@@ -87,9 +88,9 @@ const Homepage = () => {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  const realizations = data.homePage.data.attributes.realizations.data;
   const content = data.homePage.data.attributes;
 
+  console.log(content.realizations.data) 
   return (
     <div className="homePage grid grid-cols-6 gap-4">
       <div className="flex flex-col justify-between min-h-screen col-span-6 firstItemPading">
@@ -100,9 +101,7 @@ const Homepage = () => {
           </h1>
           <div className="col-span-6 md:col-start-4 md:col-end-7 lg:col-start-4 lg:col-end-6">
             <p className="p">{content.companyDescription}</p>
-            <div className="mt-10 mb-10 md:mt-0 md:mb-0">
               <ContactUsButton />
-            </div>
           </div>
         </div>
         
@@ -169,25 +168,7 @@ const Homepage = () => {
         <div className="smallSpace col-span-6"></div>
 
         <div className="col-span-6 flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 hideScrollBar">
-          {content.services.map((service, index) => (
-            <Link to={`/services#${service.serviceTitle.toLowerCase()}`}>
-            <div
-              className={`flex-shrink-0 w-64 md:w-auto md:col-span-1 pr-4 md:pr-0 border-r-2 border-gray-200 ${
-                index === content.services.length - 1
-                  ? "border-none"
-                  : "md:border-none"
-              }`}
-              key={index}
-            >
-              <img
-                src={`http://localhost:1337${service.serviceIcon.data.attributes.url}`}
-                alt={service.serviceTitle}
-              />
-              <h2 className="title3 serviceTitleHover">{service.serviceTitle}</h2>
-              <p className="p">{service.serviceDescription}</p>
-            </div>
-            </Link>
-          ))}
+          <ServicesComponent services={content.services} />
         </div>
         <Link to='/services' className="col-span-6 flex justify-center">
           <PreciflexButton value={'Discover more about our services'}/>
@@ -215,7 +196,7 @@ const Homepage = () => {
       <div className="col-span-6">
         <h2 className="title2">Realizations</h2>
         <div className="smallSpace w-full"></div>
-          <ProductCards />
+          <ProductCards data={content.realizations.data}/>
       </div>
     </div>
   );

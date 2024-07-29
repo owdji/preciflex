@@ -2,17 +2,12 @@ import React, { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import "../../styles/LightTech.css";
-import watch from "../../assets/light-watch.png";
-import darkWatch from "../../assets/dark-watch.png";
-import SunIcon from "../../assets/svgIcons/SunIcon";
-import MoonIcon from "../../assets/svgIcons/MoonIcon";
 import ContactSection from "../../components/ContactSection";
 import ProductCards from "../../components/ProductCards";
-
+import LightTechWatch from "./LightTechWatch";
 const LightTech = () => {
   const circleRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [selectedIcon, setSelectedIcon] = useState("sun");
 
   useGSAP(
     () => {
@@ -25,41 +20,10 @@ const LightTech = () => {
     { dependencies: [mousePosition] }
   );
 
-  useGSAP(
-    () => {
-      if (selectedIcon === "sun") {
-        gsap.to(".lightTech-darkWatch", {
-          opacity: 0,
-          duration: 3,
-          ease: "power1.out",
-        });
-      } else {
-        gsap.to(".lightTech-darkWatch", {
-          opacity: 1,
-          duration: 3,
-          ease: "power1.out",
-        });
-      }
-    },
-    { dependencies: [selectedIcon] }
-  );
-
   const handleMove = (event) => {
     setMousePosition({ x: event.clientX, y: event.clientY });
   };
 
-  const handleIconClick = () => {
-    setSelectedIcon((prevIcon) => (prevIcon === "sun" ? "moon" : "sun"));
-  };
-
-  const renderIcons = () => {
-    return (
-      <>
-        <SunIcon color={selectedIcon === "sun" ? "blue" : "black"}/>
-        <MoonIcon color={selectedIcon === "moon" ? "blue" : "black"} />
-      </>
-    );
-  };
 
   return (
     <div>
@@ -88,20 +52,9 @@ const LightTech = () => {
             </p>
           </div>
 
-          <div className="col-start-3 col-end-5 h-full">
-            <div className="lightTech-watch-container">
-              <div
-                className="w-full flex justify-center"
-                onClick={handleIconClick}
-              >
-                {renderIcons()}
-              </div>
-              <div className="flex">
-                <img src={watch} className="lightTech-watch" />
-                <img src={darkWatch} className="lightTech-darkWatch" />
-              </div>
+          <div className="col-start-3 col-end-5 h-full lightTech-watch-container">
+            <LightTechWatch />
             </div>
-          </div>
         </div>
 
         <div className="col-span-6">

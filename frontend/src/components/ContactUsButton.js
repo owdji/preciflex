@@ -37,7 +37,7 @@ const containerRef = useRef(null);
     
   return (
     <Link ref={containerRef} to='/contact'>
-      <div className="row">
+      <div className="row mt-10 mb-10 md:mt-0 md:mb-0">
         <div className="v-slider-frame">
           <ul className="v-slides">
             <li className="v-slide bold1">Innovate trough collaboration</li>

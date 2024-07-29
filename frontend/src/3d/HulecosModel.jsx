@@ -1,19 +1,17 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef, useRef, useEffect } from 'react';
 import { useGLTF, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
+import useSmoothLookAt from '../hooks/UseSmoothLookAt';
 
 const HulecosModel = forwardRef((props, ref) => {
   const { nodes } = useGLTF('/hulecos.glb');
   const texture = useTexture('/hulecosBaked3.png');
   const screenTexture = useTexture('/hulecosScreenBaked.png');
+  const internalRef = useRef();
 
   texture.flipY = false;
-  texture.repeat.set(1, 1); // Adjust the scale
-  texture.offset.set(0, 0); // Adjust the offset
-
-  // screenTexture.flipY = false;
-  // screenTexture.repeat.set(1.5,1.5);
-  // screenTexture.offset.set(-0.4,0.2);
+  texture.repeat.set(1, 1);
+  texture.offset.set(0, 0);
 
   const textureMaterial = new THREE.MeshStandardMaterial({
     map: texture,
@@ -25,11 +23,20 @@ const HulecosModel = forwardRef((props, ref) => {
     map: screenTexture,
   });
 
-  // Optionally use a hook here, if needed
-  // useSmoothLookAt(hulecosModelRef, true);
+
+  // Sync the internal ref with the forwarded ref
+  useEffect(() => {
+    if (ref) {
+      if (typeof ref === 'function') {
+        ref(internalRef.current);
+      } else {
+        ref.current = internalRef.current;
+      }
+    }
+  }, [ref]);
 
   return (
-    <group {...props} dispose={null} ref={ref}>
+    <group {...props} dispose={null} ref={internalRef}>
       <group rotation={[0, 4.75, 0]} position={[0, -3, 0]}>
         <mesh geometry={nodes.Cube003.geometry} material={textureMaterial} />
         <mesh geometry={nodes.Cube003_1.geometry} material={textureMaterial} />
@@ -43,5 +50,4 @@ const HulecosModel = forwardRef((props, ref) => {
 });
 
 useGLTF.preload('/hulecos.glb');
-
 export default HulecosModel;

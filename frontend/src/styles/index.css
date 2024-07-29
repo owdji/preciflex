@@ -292,7 +292,7 @@ a {
 /* reduce first item padding on mobile */
 @media (max-width: 900px) {
   .firstItemPading {
-      padding-top: 60px;
+      padding-top: 65px;
   }
 
 }

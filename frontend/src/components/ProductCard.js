@@ -51,9 +51,17 @@ const ProductCard = ({ id, title, industry, services, competences, imageUrl }) =
   }, [mouseOver, isMobile]);
 
   if (id === '3') {
-    id = 'Hyt';
+    id = 'hyt';
+  } else if(id === '4') {
+    id = 'fluidic-tech'
+  } else if(id === '6') {
+    id = 'hulecos'
+  } else if(id === '7') {
+    id = 'light-tech'
+  } else if(id === '5') {
+    id = 'preci-health'
   }
-
+  
   return (
     <Link className={`productCard`} to={`/luxury/${id}`} onMouseEnter={() => setMouseOver(true)} onMouseLeave={() => setMouseOver(false)}>
       <div className='topProductCard'>

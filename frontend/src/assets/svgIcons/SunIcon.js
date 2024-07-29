@@ -3,7 +3,7 @@ import React from "react";
 const SunIcon = ({ color = 'black' }) => {
   return (
     <svg
-    className="m-5"
+    className="lightTech-svg-icon m-5"
 
       width="42"
       height="41"

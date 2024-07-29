@@ -1,5 +1,10 @@
 const createToc = (content) => {
     const newTableOfContents = [];
+    console.log(content)
+    //remove the last element
+    const contentArray = Array.from(content)
+    contentArray.pop()
+    content = contentArray
     content.forEach((element) => {
       // Modifications des éléments
       element.id = element.innerText.replace(/\s+/g, '-').replace(/^-/, '').toLowerCase();

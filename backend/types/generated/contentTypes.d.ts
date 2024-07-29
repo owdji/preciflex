@@ -788,6 +788,39 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAboutAbout extends Schema.SingleType {
+  collectionName: 'abouts';
+  info: {
+    singularName: 'about';
+    pluralName: 'abouts';
+    displayName: 'About';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    description: Attribute.Text;
+    content: Attribute.RichText;
+    banner: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about.about',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCompetencesPageCompetencesPage extends Schema.SingleType {
   collectionName: 'competences_pages';
   info: {
@@ -1083,6 +1116,11 @@ export interface ApiRealizationRealization extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    moreRealizations: Attribute.Relation<
+      'api::realization.realization',
+      'oneToMany',
+      'api::realization.realization'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1122,6 +1160,7 @@ export interface ApiServicesPageServicesPage extends Schema.SingleType {
     ideation: Attribute.Component<'services.steps-for-services-page', true>;
     rAndD: Attribute.Component<'services.steps-for-services-page', true> &
       Attribute.Required;
+    content: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1158,6 +1197,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::about.about': ApiAboutAbout;
       'api::competences-page.competences-page': ApiCompetencesPageCompetencesPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::luxury-home-page.luxury-home-page': ApiLuxuryHomePageLuxuryHomePage;

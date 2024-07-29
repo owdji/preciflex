@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { MeshTransmissionMaterial } from '@react-three/drei';
 import * as THREE from 'three'; 
@@ -9,6 +9,18 @@ const ModuleFluidiqueForAnimation = ({color, ...props }) => {
   const { nodes, materials } = useGLTF('/module-fluidique-pres-transformed.glb');
   const modelRef = useRef();
   const liquidRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 900);
+    };
+  
+    handleResize();
+    window.addEventListener('resize', handleResize);
+  
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
 
   // Créer un nouveau matériau basé sur la couleur choisie
   const liquidMaterial = useMemo(() => {
@@ -18,6 +30,8 @@ const ModuleFluidiqueForAnimation = ({color, ...props }) => {
   }, [color, materials]);
 
   useGSAP(() => { 
+
+    if(!isMobile){
 
       gsap.to(modelRef.current.position, {
         x: -5,
@@ -29,7 +43,7 @@ const ModuleFluidiqueForAnimation = ({color, ...props }) => {
           start: 'top center',
           end: 'bottom center',
           scrub: 0.5,
-          markers: true,
+          markers: false,
         },
       });
 
@@ -43,7 +57,7 @@ const ModuleFluidiqueForAnimation = ({color, ...props }) => {
           start: 'top center',
           end: 'bottom center',
           scrub: 0.5,
-          markers: true,
+          markers: false,
         },
       });
 
@@ -57,9 +71,10 @@ const ModuleFluidiqueForAnimation = ({color, ...props }) => {
           start: 'top center',
           end: 'bottom center',
           scrub: 0.5,
-          markers: true,
+          markers: false,
         },
       });
+    }
   },);  
 
   return ( 

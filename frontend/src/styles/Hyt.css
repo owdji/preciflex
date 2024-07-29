@@ -15,14 +15,14 @@
     height: 30px;
     width: 30px;
     margin: 10px;
-    z-index: 100;
+    z-index: 29;
 }
 
 .hytSelectedSquare{
     height: 30px;
     width: 30px;
     margin: 10px;
-    z-index: 100;
+    z-index: 29;
     border: 2px solid var(--electric-blue);
 }
 
@@ -30,7 +30,7 @@
     height: 30px;
     width: 30px;
     margin: 10px;
-    z-index: 100;
+    z-index: 29;
     border: 2px solid black
 }
 

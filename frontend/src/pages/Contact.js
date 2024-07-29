@@ -60,13 +60,13 @@ const Contact = () => {
   }
 
   return (
-    <div className='h-screen homePage grid grid-cols-6 h-screen'>
-      <div className='col-span-2'>
+    <div className='min-h-screen homePage grid grid-cols-6 firstItemPading pb-16'>
+      <div className='col-span-6 md:col-span-2'>
         <h1 className='title1'>Contact <span className='highlight-make'>Preciflex</span></h1>
         <PreciflexButton onClick={() => window.location.href = 'tel:032 513 56 56'} value='+032 513 56 56' icon='phone' bold />
         <PreciflexButton onClick={() => window.location.href = 'mailto:info@preciflex.ch'} value='info@preciflex.ch' icon='email' bold />
       </div>
-      <div className='col-span-4'>
+      <div className='col-span-6 md:col-span-4'>
         <h2 className='title2'>About ?</h2>
         <div className='grid grid-cols-2 abouOptionsContainer'>
           <AboutOption title='All services' sendSelectedAbout={handleSelectedAbout}/>
@@ -77,11 +77,9 @@ const Contact = () => {
           <AboutOption title='Other' sendSelectedAbout={handleSelectedAbout}/>
         </div>
         <h2 className='title2'>Introduce youreself</h2>
-        {/* create a form with full name, email, company */}
         <p className='p text-[#DC2855] mb-4'>{errorMessage}</p>
-        <form className='grid grid-cols-4 gap-4' ref={form}>
+        <form className='grid md:grid-cols-4 gap-4' ref={form}>
           <div className='col-span-2'>
-            {/* <div className='bg-blue-500 col-span-2 h-8'></div> */}
             <label className='col-span-2 p text-electric-blue'>Full name*</label>
             <input className='contactInput col-span-2 p h-10' type='text' placeholder='Full name' value={name} onChange={(e) => setName(e.target.value)}/>
 

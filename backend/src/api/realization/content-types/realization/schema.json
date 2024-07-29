@@ -116,6 +116,11 @@
       },
       "type": "text",
       "required": false
+    },
+    "moreRealizations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::realization.realization"
     }
   }
 }

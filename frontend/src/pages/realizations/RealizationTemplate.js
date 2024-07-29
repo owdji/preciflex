@@ -30,24 +30,9 @@ query getRealization($id: ID!) {
 
 const RealizationTemplate = () => {
   const { id } = useParams()
-  const [tableOfContents, setTableOfContents] = useState([])
   const { data, error, loading } = useQuery(REALIZATION, {
     variables: { id: id }
   })
-
-  useEffect(() => {
-      const newTableOfContents = [];
-      document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((element) => {
-        // Modifications des éléments
-        element.id = element.innerText.replace(/\s+/g, '-').replace(/^-/, '').toLowerCase();
-        newTableOfContents.push(element.innerText.replace(/#+\s+/g, ''));
-      });
-      
-      //remove first element
-      setTableOfContents(newTableOfContents)
-
-      console.log(tableOfContents)
-  }, [data]);
 
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error: {error.message}</div>
@@ -59,9 +44,8 @@ const RealizationTemplate = () => {
       <div className='grid grid-cols-6 h-screen content-center'>
         <div className='col-span-2'>
           <h1 className='title1'>{realization.attributes.title}</h1>
-          {/* <div className='fixed left-0 top-0 h-full w-1/4 p-4'> */}
-          <div className=''>
-          <TableOfContent/>
+          <div>
+            <TableOfContent/>
           </div>
         </div>
 

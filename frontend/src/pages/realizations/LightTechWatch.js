@@ -48,8 +48,8 @@ const LightTechWatch = () => {
         {renderIcons()}
       </div>
       <div className="lightTech-watch-wrapper">
-        <img src={watch} className="lightTech-watch" alt="Light watch" />
-        <img src={darkWatch} className="lightTech-darkWatch" alt="Dark watch" />
+        <img src={watch} className="lightTech-watch" />
+        <img src={darkWatch} className="lightTech-darkWatch"/>
       </div>
     </div>
   );

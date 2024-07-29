@@ -27,7 +27,9 @@ const BurgerMenu = ({ backgroundColor }) => {
           <NavLink to="/" onClick={toggleMenu} className={({ isActive }) => isActive ? "active-link" : ""}>Home</NavLink>
           <div className="burger-dropdown">
             <button onClick={() => handleMenuClick('luxury')}>
+            <Link to="/luxury" onClick={toggleMenu} className={({ isActive }) => isActive ? "active-link" : ""}>
               Luxury
+            </Link>
               <span className={`arrow ${openDropdown === 'luxury' ? 'open' : ''}`}><RightArrow/></span>
             </button>
             {openDropdown === 'luxury' && (
@@ -41,12 +43,14 @@ const BurgerMenu = ({ backgroundColor }) => {
           </div>
           <div className="burger-dropdown">
             <button onClick={() => handleMenuClick('medtech')}>
+              <Link to="/medtech" onClick={toggleMenu} className={({ isActive }) => isActive ? "active-link" : ""}>
               Medtech
+              </Link>
               <span className={`arrow ${openDropdown === 'medtech' ? 'open' : ''}`}><RightArrow/></span>
             </button>
             {openDropdown === 'medtech' && (
               <div className="dropdown-content">
-                <NavLink to="/medtech/preci-health" onClick={toggleMenu} className={({ isActive }) => isActive ? "active-link" : ""}>Preci-Health</NavLink>
+                <NavLink to="/medtech/5" onClick={toggleMenu} className={({ isActive }) => isActive ? "active-link" : ""}>Preci-Health</NavLink>
               </div>
             )}
           </div>

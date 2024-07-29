@@ -8,6 +8,17 @@
   align-items: center;
 }
 
+.lightTechCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  background-color: #DEDEDE;
+  mix-blend-mode: color-dodge;
+}
+
 .lightTech-icons {
   width: 100%;
   display: flex;
@@ -20,29 +31,24 @@
   .lightTech-svg-icon {
     width: 30px;
     height: 30px;
+    min-width: 30px;
   }
 
 }
 
-.lightTechCircle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 200px;
-  width: 200px;
-  border-radius: 100%;
-  background-color: #DEDEDE;
-  mix-blend-mode: color-dodge;
-}
 .lightTech-watch-wrapper {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 50%; /* Crée un conteneur carré */
+  padding-bottom: 200px;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .lightTech-watch-container{
-  height: 50%;
   position: sticky;
   top: 100px;
   width: 100%;
@@ -55,6 +61,7 @@
   transform: translate(-50%, -50%);
   width: 50%;
   max-width: 250px;
+  min-width: 200px;
   z-index: 1;
 }
 
@@ -63,7 +70,8 @@
   top: 50%;
   left: 50%;
   width: 45%;
-  max-width: 230px;
+  max-width: 250px;
+  min-width: 180px;
   z-index: 5;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -73,11 +81,13 @@
 @media (max-width: 900px) {
   .lightTech-watch {
     width: 100%;
-    min-width: 100px;
+    max-width: 200px;
+    min-width: 190px;
   }
 
   .lightTech-darkWatch {
     width: 90%;
-    min-width: 100px;
+    max-width: 180px;
+    min-width: 170px;
   }
 }

@@ -12,7 +12,7 @@ const DropdownMenu = ({ title, links, isMobile }) => {
     return (
       <div className="footerDropDown desktop">
         <NavLink
-          to={links[0].to}
+          to={`/${title.toLowerCase()}`}
           className={({ isActive }) =>
             isActive ? "active-link-footer" : "navigationLinkFooter"
           }
@@ -39,7 +39,14 @@ const DropdownMenu = ({ title, links, isMobile }) => {
   return (
     <div className="footerDropDown mobile">
       <button onClick={() => setIsOpen(!isOpen)} className="dropdownButton">
+      <NavLink
+        to={`/${title.toLowerCase()}`}
+        className={({ isActive }) =>
+          isActive ? "active-link-footer" : "navigationLinkFooter"
+        }
+      >
         {title}
+      </NavLink>
         <span className={`arrow ${isOpen ? 'open' : ''}`}>
           <RightArrow color='white'/>
         </span>
@@ -100,8 +107,7 @@ const Footer = () => {
           <DropdownMenu
             title="Medtech"
             links={[
-              { to: "/medtech", text: "Medtech" },
-              { to: "/medtech/preci-health", text: "Preci-Health" },
+              { to: "/medtech/5", text: "Preci-Health" },
             ]}
             isMobile={isMobile}
           />
@@ -156,7 +162,7 @@ const Footer = () => {
           </NavLink>
         </nav>
         <div className="socialMedia">
-          <a href="https://www.linkedin.com">
+          <a href="https://www.linkedin.com/company/preciflex">
             <p>LINKEDIN</p>
           </a>
         </div>

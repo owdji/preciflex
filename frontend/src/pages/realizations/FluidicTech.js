@@ -24,7 +24,7 @@ const FluidicTech = () => {
   const flowers = [flower1, flower2, flower3, flower4, flower5, flower6, flower7, flower8, flower9, flower10];
 
 
-  useEffect(() => {
+  useEffect(() => { 
     if (flowerPositions.current.length === 0) {
       flowerPositions.current = flowers.map(() => ({
         right: `${Math.floor(Math.random() * 81)}%`,
@@ -78,7 +78,7 @@ const FluidicTech = () => {
   return (
     <div>
       <div className='fluidicTechHero h-screen overflow-hidden' onMouseMove={handleMove}>
-        <h1 className='title1 z-[5]'>Fluidic Technologies</h1>
+        <h1 className='title1 z-[5] text-center'>Fluidic Technologies</h1>
         <p className='title4 z-[5]'>PRECIFLEX</p>
         {isInitialized && flowers.map((flower, index) => (
           <img

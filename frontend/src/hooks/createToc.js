@@ -5,6 +5,10 @@ const createToc = (content) => {
     const contentArray = Array.from(content)
     contentArray.pop()
     content = contentArray
+    //remove the first element
+    contentArray.shift()
+    content = contentArray
+    
     content.forEach((element) => {
       // Modifications des éléments
       element.id = element.innerText.replace(/\s+/g, '-').replace(/^-/, '').toLowerCase();

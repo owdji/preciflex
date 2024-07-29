@@ -16,8 +16,8 @@ import cigar from "../../assets/cut-cigar.png";
 import "../../styles/Hulecos.css";
 import { gql, useQuery } from "@apollo/client";
 import HulecosLogo from "../../assets/svgIcons/HulecosLogo";
-import ContactSection from '../../components/ContactSection'
-import ProductCards from '../../components/ProductCards'
+import ContactSection from "../../components/ContactSection";
+import ProductCards from "../../components/ProductCards";
 
 const HULECOS = gql`
   query getRealization {
@@ -201,12 +201,15 @@ const Hulecos = () => {
         </Canvas>
       </div>
 
-      <div id="hulecosContent" className="homePage min-h-screen flex flex-col-reverse md:flex-row items-center">
+      <div
+        id="hulecosContent"
+        className="homePage min-h-screen flex flex-col-reverse md:flex-row items-center"
+      >
         <div className="md:w-1/2 h-full flex items-center p-8">
           <p className="p">{realizationPageContent[0]}</p>
         </div>
         <div className="h-[500px] md:h-[800px]">
-          <Canvas style={{width: '500px'}}>
+          <Canvas style={{ width: "500px" }}>
             <ambientLight intensity={1} />
             <OrbitControls enableZoom={false} />
             <PerspectiveCamera />
@@ -229,13 +232,17 @@ const Hulecos = () => {
         </div>
       </div>
 
-      <div className="sectionSpace"></div>
+      <div className="homePage">
+        <div className="sectionSpace"></div>
 
-      <ContactSection />
+        <ContactSection />
 
-      <div className="sectionSpace"></div>
+        <div className="sectionSpace"></div>
 
-      <ProductCards data={data.realization.data.attributes.moreRealizations.data} />
+        <ProductCards
+          data={data.realization.data.attributes.moreRealizations.data}
+        />
+      </div>
     </div>
   );
 };

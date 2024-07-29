@@ -56,6 +56,7 @@ const MEDTECHHOMEPAGE = gql`
                 industry
                 services
                 competences
+                description
                 productImage {
                   data {
                     attributes {
@@ -84,6 +85,7 @@ const MedtechHomepage = () => {
   //the other only with the industry luxury
   const luxuryRealizations = content.realizations.data.filter((realization) => realization.attributes.industry === 'luxury')
 
+  console.log(medtechRealizations)
   return (
     <div className='homePage grid grid-cols-6 gap-x-4'>
       {/* Hero Section */}

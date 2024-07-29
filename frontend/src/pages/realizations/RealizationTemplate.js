@@ -1,69 +1,99 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { useQuery, gql } from '@apollo/client'
-import ReactMarkdown from 'react-markdown'
-import '../../styles/RealizationTemplate.css'
-import TableOfContent from '../../components/TableOfContent'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useQuery, gql } from "@apollo/client";
+import ReactMarkdown from "react-markdown";
+import "../../styles/RealizationTemplate.css";
+import TableOfContent from "../../components/TableOfContent";
+import ContactSection from "../../components/ContactSection";
+import ProductCards from "../../components/ProductCards";
 
 const REALIZATION = gql`
-query getRealization($id: ID!) {
-  realization(id: $id) {
-    data {
-      attributes {
-        title
-        industry
-        banner {
+  query getRealization($id: ID!) {
+    realization(id: $id) {
+      data {
+        attributes {
+          title
+          industry
+          banner {
+            data {
+              attributes {
+                url
+              }
+            }
+          }
+          services
+          competences
+          realizationPageContent
+
+          moreRealizations {
           data {
+            id
             attributes {
-              url
+              title
+              industry
+              services
+              competences
+              productImage {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
             }
           }
         }
-        services
-        competences
-        realizationPageContent
+        }
       }
     }
   }
-}
-`
+`;
 
 const RealizationTemplate = () => {
-  const { id } = useParams()
+  const { id } = useParams();
   const { data, error, loading } = useQuery(REALIZATION, {
-    variables: { id: id }
-  })
+    variables: { id: id },
+  });
 
-  if (loading) return <div>Loading...</div>
-  if (error) return <div>Error: {error.message}</div>
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
-  const realization = data.realization.data
-  
+  const realization = data.realization.data;
+
   return (
-    <div className='realizationTemplate'>
-      <div className='grid grid-cols-6 h-screen content-center'>
-        <div className='col-span-2'>
-          <h1 className='title1'>{realization.attributes.title}</h1>
+    <div className="realizationTemplate">
+      <div className="grid grid-cols-6 h-screen content-center">
+        <div className="col-span-6 md:col-span-2">
+          <h1 className="title1">{realization.attributes.title}</h1>
           <div>
-            <TableOfContent/>
+            {/* <TableOfContent /> */}
           </div>
         </div>
 
-        <img src={`http://localhost:1337${realization.attributes.banner.data.attributes.url}`} className='col-span-4 realizationTemplateBanner'/>
+        <img
+          src={`http://localhost:1337${realization.attributes.banner.data.attributes.url}`}
+          className="col-span-6 md:col-span-4 realizationTemplateBanner"
+        />
       </div>
       <div>
-      <div className='grid grid-cols-12 realizationTemplateContent'>
-          <ReactMarkdown>
-            {realization.attributes.realizationPageContent}
-          </ReactMarkdown>
-      </div>
+        <div className="flex justify-center">
+          <div className="realizationTemplateContent md:p-[43px]">
+            <ReactMarkdown>
+              {realization.attributes.realizationPageContent}
+            </ReactMarkdown>
+          </div>
+        </div>
       </div>
 
+      <ContactSection />
+
+      <div className="sectionSpace"></div>
+      <ProductCards data={data.realization.data.attributes.moreRealizations.data}/>
     </div>
-  )
-}
+  );
+};
 
-export default RealizationTemplate
+export default RealizationTemplate;
 
 //------------------------------------------------------------
 // import React, { useEffect, useState } from 'react'
@@ -72,9 +102,7 @@ export default RealizationTemplate
 // import ReactMarkdown from 'react-markdown'
 // import '../../styles/RealizationTemplate.css'
 
-
 // const RealizationTemplate = () => {
-  
 
 //   const { id } = useParams()
 //   const [tableOfContents, setTableOfContents] = useState([])
@@ -88,7 +116,7 @@ export default RealizationTemplate
 //         element.id = element.innerText.replace(/\s+/g, '-').replace(/^-/, '').toLowerCase();
 //         newTableOfContents.push(element.innerText.replace(/#+\s+/g, ''));
 //       });
-      
+
 //       //remove first element
 //       setTableOfContents(newTableOfContents)
 

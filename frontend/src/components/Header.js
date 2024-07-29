@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import "../styles/Header.css";
 import RightArrow from "../assets/svgIcons/RightArrow";
 import PreciflexLogo from "../assets/svgIcons/PreciflexLogo";
-import BurgerMenu from "../pages/BurgerMenu";
+import BurgerMenu from "./BurgerMenu";
 
 const Header = ({ backgroundColor = "headerBackgroundWhite" }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -117,7 +117,7 @@ const Header = ({ backgroundColor = "headerBackgroundWhite" }) => {
             {openDropdown === "medtech" && (
               <div className="dropdown">
                 <NavLink
-                  to="/medtech/preci-health"
+                  to="/medtech/5"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
                   Preci-Health

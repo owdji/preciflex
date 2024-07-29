@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
 import { ModuleFluidique } from "../3d/ModuleFluidique";
 import "../styles/ThreeDimensionCarousel.css";
 import HulecosModel from "../3d/HulecosModel";
 import LightTechWatch from "../pages/realizations/LightTechWatch";
-import FluidixTechWatch from "../assets/watch-flowers.png";
+import FluidicTechWatch from "../assets/watch-flowers.png";
+import PreciHealth from "../assets/preci-health.png";
+import PreciflexButton from "./PreciflexButton";
+import { Link } from "react-router-dom";
 
 export default function ThreeDimensionCarousel({ realizations }) {
   const [current, setCurrent] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-
+  
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 900);
@@ -33,36 +36,62 @@ export default function ThreeDimensionCarousel({ realizations }) {
     }
   };
 
+  const getLink = useMemo(() => {
+    switch (realizations[current].id) {
+      case "3":
+        return "luxury/hyt";
+      case "4":
+        return "luxury/fluidic-tech";
+      case "6":
+        return "luxury/hulecos";
+      case "7":
+        return "luxury/light-tech";
+      case "5":
+        return "medtech/5";
+      default:
+        return "";
+    }
+  }, [current, realizations]);
+
   const renderMainCarouselElement = (realization) => {
-    if (realization.id === "3") {
-      return (
-        <Canvas>
-          <Environment preset="studio" />
-          <ambientLight />
-          <OrbitControls enableZoom={false}/>
-          <ModuleFluidique position={[0, 0, 0]} scale={[100, 100, 100]} />
-        </Canvas>
-      );
-    } else if (realization.id === "4") {
-      return (
-        <div className="flex justify-center items-center h-full">
-          <img src={FluidixTechWatch} alt="Fluidix Tech Watch" className="w-[30%]"/>
-        </div>
-      );
-    } else if (realization.id === "6") {
-      return (
-        <Canvas>
-          <ambientLight intensity={1} />
-          <OrbitControls enableZoom={false}/>
-          <HulecosModel position={[0, 3, 0]} scale={[1.4, 1.4, 1.4]} look={true} />
-        </Canvas>
-      );
-    } else if (realization.id === "7") {
-      return (
-        <div>
-          <LightTechWatch/>
-        </div>
-      );
+    switch (realization.id) {
+      case "3":
+        return (
+          <Canvas>
+            <Environment preset="studio" />
+            <ambientLight />
+            <OrbitControls enableZoom={false}/>
+            <ModuleFluidique position={[0, 0, 0]} scale={[100, 100, 100]} />
+          </Canvas>
+        );
+      case "4":
+        return (
+          <div className="flex justify-center items-center h-full">
+            <img src={FluidicTechWatch} alt="Fluidix Tech Watch" className="w-[30%]"/>
+          </div>
+        );
+      case "6":
+        return (
+          <Canvas>
+            <ambientLight intensity={1} />
+            <OrbitControls enableZoom={false}/>
+            <HulecosModel position={[0, 3, 0]} scale={[1.4, 1.4, 1.4]} look={true} />
+          </Canvas>
+        );
+      case "7":
+        return (
+          <div>
+            <LightTechWatch/>
+          </div>
+        );
+      case "5":
+        return (
+          <div className="flex justify-center items-center h-full">
+            <img src={PreciHealth} alt="PreciHealth" className="max-h-[500px] md:max-h-[700px]"/>
+          </div>
+        );
+      default:
+        return null;
     }
   };
 
@@ -139,6 +168,13 @@ export default function ThreeDimensionCarousel({ realizations }) {
             </div>
           </div>
         </div>
+
+
+      </div>
+      <div className="w-full flex justify-center">
+        <Link to={`/${getLink}`} className="z-10">
+          <PreciflexButton value={'Discover more'}/>
+        </Link>
       </div>
     </div>
   );

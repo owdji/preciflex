@@ -31,7 +31,11 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Homepage />} />
             <Route exact path="/homePage" element={<Homepage />} />
-            <Route path="/medtech" element={<MedtechHomepage />} />
+            <Route path="/medtech" element={<MedtechWrapper />}>
+              <Route index element={<MedtechHomepage />} />
+              <Route path=":id" element={<RealizationTemplate />} />
+            </Route>
+
             <Route path="/luxury" element={<LuxuryWrapper />}>
               <Route index element={<LuxuryHomepage />} />
               <Route path="hyt" element={<Hyt />} />
@@ -40,6 +44,7 @@ function App() {
               <Route path='hulecos' element={<Hulecos/>}/>
               <Route path=':id' element={<RealizationTemplate/>}/>
             </Route>
+
             <Route path='/services' element={<Services/>}/>
             <Route path='/competences' element={<Competences/>}/>
             <Route path='/about' element={<About/>}/>
@@ -53,6 +58,12 @@ function App() {
 }
 
 const LuxuryWrapper = () => (
+  <div>
+    <Outlet />
+  </div>
+);
+
+const MedtechWrapper = () => (
   <div>
     <Outlet />
   </div>

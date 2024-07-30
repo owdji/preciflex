@@ -1,15 +1,49 @@
+# services:
+#   - type: web
+#     name: strapi
+#     env: node
+#     plan: starter
+#     # buildCommand: yarn install && yarn build
+#     # startCommand: rsync -a public/ /data/public/ && yarn start
+#     # startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && yarn start
+#     #test
+#     buildCommand: npm install && npm run build
+#     # startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && npm start
+#     startCommand: npm start
+
+#     healthCheckPath: /_health
+#     autoDeploy: false
+#     disk:
+#       name: strapi-data
+#       mountPath: /data
+#       sizeGB: 1
+#     envVars:
+#       - key: NODE_VERSION
+#         value: 18.18.0
+#       - key: NODE_ENV
+#         value: production
+#       - key: DATABASE_FILENAME
+#         value: /data/strapi.db
+#       - key: JWT_SECRET
+#         generateValue: true
+#       - key: ADMIN_JWT_SECRET
+#         generateValue: true
+#       - key: APP_KEYS
+#         generateValue: true
+#       - key: API_TOKEN_SALT
+#         generateValue: true
+#       - key: APP_KEYS
+#         generateValue: true
+#       - key: TRANSFER_TOKEN_SALT
+#         generateValue: true
+
 services:
   - type: web
     name: strapi
     env: node
     plan: starter
-    # buildCommand: yarn install && yarn build
-    # startCommand: rsync -a public/ /data/public/ && yarn start
-    # startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && yarn start
-    #test
     buildCommand: npm install && npm run build
-    startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && npm start
-
+    startCommand: npm start  # Simplifier le start command
     healthCheckPath: /_health
     autoDeploy: false
     disk:
@@ -22,7 +56,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_FILENAME
-        value: /data/strapi.db
+        value: /data/strapi.db  # Mise à jour pour correspondre au chemin correct
       - key: JWT_SECRET
         generateValue: true
       - key: ADMIN_JWT_SECRET
@@ -30,8 +64,6 @@ services:
       - key: APP_KEYS
         generateValue: true
       - key: API_TOKEN_SALT
-        generateValue: true
-      - key: APP_KEYS
         generateValue: true
       - key: TRANSFER_TOKEN_SALT
         generateValue: true

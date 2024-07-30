@@ -4,8 +4,9 @@ services:
     env: node
     plan: starter
     buildCommand: yarn install && yarn build
-    # startCommand: rsync -a public/ /data/public/ && yarn start
-    startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && yarn start
+    startCommand: rsync -a public/ /data/public/ && yarn start
+    # startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && yarn start
+
     healthCheckPath: /_health
     autoDeploy: false
     disk:

@@ -12,9 +12,9 @@ services:
 
     healthCheckPath: /_health
     autoDeploy: false
-disk:
+    disk:
       name: strapi-data
-      mountPath: /opt/render/project/src/public/uploads
+      mountPath: /data
       sizeGB: 1
     envVars:
       - key: NODE_VERSION
@@ -22,7 +22,7 @@ disk:
       - key: NODE_ENV
         value: production
       - key: DATABASE_FILENAME
-        value: /opt/render/project/src/public/uploads/strapi.db
+        value: /data/strapi.db
       - key: JWT_SECRET
         generateValue: true
       - key: ADMIN_JWT_SECRET

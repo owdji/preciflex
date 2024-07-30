@@ -6,6 +6,7 @@ services:
     buildCommand: yarn install && yarn build
     startCommand: rsync -a public/ /data/public/ && yarn start
     # startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && yarn start
+    #test
 
     healthCheckPath: /_health
     autoDeploy: false

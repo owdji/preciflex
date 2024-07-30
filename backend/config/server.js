@@ -8,6 +8,6 @@ module.exports = ({ env }) => ({
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
   dirs: {
-    public: './public',
+    public: env('PUBLIC_DIR', './public'),
   },
 });

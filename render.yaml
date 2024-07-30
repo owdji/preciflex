@@ -3,15 +3,16 @@ services:
     name: strapi
     env: node
     plan: starter
-    # buildCommand: yarn install && yarn build
-    # startCommand: rsync -a public/ /data/public/ && yarn start
-    # startCommand: mkdir -p /data/public && rsync -a public/ /data/public/ && yarn start
-    #test
-    buildCommand: cd backend && yarn install && yarn build
+    buildCommand: >
+      cd backend &&
+      yarn config set network-timeout 300000 &&
+      yarn install --network-timeout 300000 &&
+      yarn add sharp &&
+      yarn build
     startCommand: cd backend && mkdir -p /data/public && rsync -a public/ /data/public/ && yarn start
-
     healthCheckPath: /_health
     autoDeploy: false
+    rootDirectory: backend
     disk:
       name: strapi-data
       mountPath: /data

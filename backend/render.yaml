@@ -29,5 +29,9 @@ services:
         generateValue: true
       - key: APP_KEYS
         generateValue: true
+      - key: API_TOKEN_SALT
+        generateValue: true
+      - key: APP_KEYS
+        generateValue: true
       - key: TRANSFER_TOKEN_SALT
         generateValue: true

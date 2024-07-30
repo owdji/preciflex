@@ -30,6 +30,8 @@ const About = () => {
 
   const content = data.about.data.attributes.content;
 
+  console.log('getting data from', config)
+
   return (
     <div className="realizationTemplate">
       <div className="grid grid-cols-6 h-screen content-center">

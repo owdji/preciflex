@@ -3,7 +3,7 @@ const config = {
       apiUrl: 'http://localhost:1337',
     },
     production: {
-      apiUrl: 'https://your-production-api-url.com',
+      apiUrl: 'https://preciflex.onrender.com',
     },
   };
   

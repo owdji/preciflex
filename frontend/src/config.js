@@ -3,7 +3,7 @@ const config = {
       apiUrl: 'http://localhost:1337',
     },
     production: {
-      apiUrl: 'https://strapi-rb1q.onrender.com',
+      apiUrl: 'https://your-production-api-url.com',
     },
   };
   

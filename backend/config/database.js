@@ -1,16 +1,4 @@
 //NEW QUE POUR SQLITE
-// module.exports = ({ env }) => ({
-//   connection: {
-//     client: 'sqlite',
-//     connection: {
-//       filename: env('DATABASE_FILENAME', '.tmp/data.db'),
-//     },
-//     useNullAsDefault: true,
-//   },
-// });
-
-//--------------------------------
-
 const path = require('path');
 
 module.exports = ({ env }) => ({
@@ -23,9 +11,21 @@ module.exports = ({ env }) => ({
   },
 });
 
-//------------------------
-//------------------------
-//------------------------
+// const path = require('path');
+
+// module.exports = ({ env }) => ({
+//   connection: {
+//     client: 'sqlite',
+//     connection: {
+//       filename: path.join(
+//         __dirname,
+//         '..',
+//         env('DATABASE_FILENAME', '.tmp/data.db')
+//       ),
+//     },
+//     useNullAsDefault: true,
+//   },
+// });
 
 // const path = require('path');
 

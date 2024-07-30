@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import PreciflexButton from "../components/PreciflexButton";
 import ServicesComponent from "../components/ServicesComponent";
 // import Style from '../components/Style'
+import config from '../config' 
 
 const HOMPAGE = gql`
   query getHomePage {
@@ -125,7 +126,7 @@ const Homepage = () => {
                 </svg>
               </div>
               <img
-                src={`http://localhost:1337${content.luxuryImage.data.attributes.url}`}
+                src={`${config.apiUrl}${content.luxuryImage.data.attributes.url}`}
                 className="homePageImage w-full"
               />
             </Link>
@@ -150,7 +151,7 @@ const Homepage = () => {
                 </svg>
               </div>
               <img
-                src={`http://localhost:1337${content.medtechImage.data.attributes.url}`}
+                src={`${config.apiUrl}${content.medtechImage.data.attributes.url}`}
                 className="homePageImage w-full"
               />
             </Link>

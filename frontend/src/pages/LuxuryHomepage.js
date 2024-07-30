@@ -7,6 +7,7 @@ import CompetencesCarousel from "../components/CompetencesCarousel";
 import ServiceCard from "../components/ServiceCard";
 import ProductCards from "../components/ProductCards";
 import ServicesComponent from "../components/ServicesComponent";
+import config from "../config";
 
 const LUXURYHOMEPAGE = gql`
   query getLuxuryHomePage {
@@ -94,7 +95,7 @@ const LuxuryHomepage = () => {
         </div>
  
         <img
-          src={`http://localhost:1337${content.luxuryImage.data.attributes.url}`}
+          src={`${config.apiUrl}${content.luxuryImage.data.attributes.url}`}
           className="col-span-6 w-full h-[300px] object-cover md:w-[100%]"
           alt="Luxury"
         />

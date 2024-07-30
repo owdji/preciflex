@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import TableOfContent from "../components/TableOfContent";
 import ReactMarkdown from "react-markdown";
-
+import config from '../config'
 const ABOUT = gql`
   query getAboutPage {
     about {
@@ -40,7 +40,7 @@ const About = () => {
         </div>
 
         <img
-          src={`http://localhost:1337${data.about.data.attributes.banner.data.attributes.url}`}
+          src={`${config.apiUrl}${data.about.data.attributes.banner.data.attributes.url}`}
           className="col-span-6 md:col-span-4 realizationTemplateBanner"
         />
       </div>

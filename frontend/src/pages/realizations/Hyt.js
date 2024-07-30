@@ -10,6 +10,7 @@ import ContactSection from '../../components/ContactSection';
 import { gql, useQuery } from '@apollo/client';
 import ProductCards from '../../components/ProductCards';
 import { ModuleFluidique } from '../../3d/ModuleFluidique';
+import config from '../../config';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -140,7 +141,7 @@ const Hyt = () => {
           <p className='text-white'>{realizationPageContent[3]}</p>
         </div>  
         <div className='col-span-3 flex items-center'>
-          <img src={`http://localhost:1337${customerImage}`}  />
+          <img src={`${config.apiUrl}${customerImage}`}  />
         </div>
     </div>
     <div className='sectionSpace col-span-6'></div>
@@ -192,7 +193,7 @@ const Hyt = () => {
 
       <div className='col-span-6 p-10 bg-black white text-white'>
         <p>{realizationPageContent[3]}</p>
-        <img src={`http://localhost:1337${customerImage}`}  />
+        <img src={`${config.apiUrl}${customerImage}`}  />
       </div>
 
       <div className='sectionSpace'></div>

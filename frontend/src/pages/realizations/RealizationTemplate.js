@@ -6,6 +6,7 @@ import "../../styles/RealizationTemplate.css";
 import TableOfContent from "../../components/TableOfContent";
 import ContactSection from "../../components/ContactSection";
 import ProductCards from "../../components/ProductCards";
+import config from "../../config";
 
 const REALIZATION = gql`
   query getRealization($id: ID!) {
@@ -71,7 +72,7 @@ const RealizationTemplate = () => {
         </div>
 
         <img
-          src={`http://localhost:1337${realization.attributes.banner.data.attributes.url}`}
+          src={`${config.apiUrl}${realization.attributes.banner.data.attributes.url}`}
           className="col-span-6 md:col-span-4 realizationTemplateBanner"
         />
       </div>

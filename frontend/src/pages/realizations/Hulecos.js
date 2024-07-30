@@ -18,6 +18,7 @@ import { gql, useQuery } from "@apollo/client";
 import HulecosLogo from "../../assets/svgIcons/HulecosLogo";
 import ContactSection from "../../components/ContactSection";
 import ProductCards from "../../components/ProductCards";
+import config from "../../config";
 
 const HULECOS = gql`
   query getRealization {
@@ -220,7 +221,7 @@ const Hulecos = () => {
       <div
         className="w-full relative"
         style={{
-          backgroundImage: `url(http://localhost:1337${customerImage})`,
+          backgroundImage: `url(${config.apiUrl}${customerImage})`,
         }}
       >
         {/* NEW DIV HERE */}

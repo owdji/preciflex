@@ -15,10 +15,11 @@ import Contact from './pages/Contact';
 import LightTech from './pages/realizations/LightTech';
 import FluidicTech from './pages/realizations/FluidicTech';
 import Hulecos from './pages/realizations/Hulecos';
+import config from './config';
 
 // apollo client
 const client = new ApolloClient({
-  uri: 'http://localhost:1337/graphql',
+  uri: `${config.apiUrl}/graphql`,
   cache: new InMemoryCache()
 });
 

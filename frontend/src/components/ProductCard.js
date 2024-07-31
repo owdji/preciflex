@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
 import '../styles/ProductCard.css';
+import config from '../config';
 
 const ProductCard = ({ id, title, industry, services, competences, imageUrl }) => {
   const productImageRef = useRef(null);
@@ -77,7 +78,7 @@ const ProductCard = ({ id, title, industry, services, competences, imageUrl }) =
         </div>
       </div>
 
-      <img ref={productImageRef} src={`http://localhost:1337${imageUrl}`} />
+      <img ref={productImageRef} src={`${config.apiUrl}${imageUrl}`} />
 
       <div className='bottomPorductCard'>
         <p className='p2' ref={competencesRef}>{competences.join(', ')}</p>

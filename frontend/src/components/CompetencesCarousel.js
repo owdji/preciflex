@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/CompetencesCarousel.css";
 import { Link } from "react-router-dom";
+import config from "../config";
 
 const CompetencesCarousel = ({ competences }) => {
   const [current, setCurrent] = useState(0);
@@ -33,7 +34,7 @@ const CompetencesCarousel = ({ competences }) => {
             </div>
           </div>
           <img
-            src={`http://localhost:1337${competences[current].competenceImage.data.attributes.url}`}
+            src={`${config.apiUrl}${competences[current].competenceImage.data.attributes.url}`}
             className="md:col-span-3 order-2 md:order-1 comptenceCarouselImage"
           />
         </div>

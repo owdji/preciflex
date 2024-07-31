@@ -3,9 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 43px;
+  padding: 0 20px; /* Réduisez le padding horizontal */
   position: fixed;
-  width: 100%;
+  width: 100vw;
+  max-width: 100%;
   z-index: 100;
   box-sizing: border-box;
 }
@@ -85,9 +86,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 20px;
+  padding: 10px;
   font-size: 24px;
-  align-self: flex-end;
+  z-index: 1001;
 }
 
 .burger-nav {
@@ -158,5 +159,11 @@
 @media (min-width: 900) {
   .burger-menu {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .burger-nav {
+    padding: 60px 20px 0;
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "../styles/Homepage.css";
-
+import config from '../config';
 
 const ServicesComponent = ({ services }) => {
     return (
@@ -16,7 +16,7 @@ const ServicesComponent = ({ services }) => {
                 }`}
               >
                 <img
-                  src={`http://localhost:1337${service.serviceIcon.data.attributes.url}`}
+                  src={`${config.apiUrl}${service.serviceIcon.data.attributes.url}`}
                   alt={service.serviceTitle}
                 />
                 <h2 className="title3 serviceTitleHover">{service.serviceTitle}</h2>

@@ -7,7 +7,4 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
-  dirs: {
-    public: './public', // Ensure this points to the correct directory
-  },
 });

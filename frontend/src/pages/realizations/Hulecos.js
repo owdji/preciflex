@@ -161,21 +161,30 @@ const Hulecos = () => {
   }, [bringToInitialPosition]);
 
   useEffect(() => {
-    //when i have data i setrealizationpagecontent to an array of the content divided by the paragraphs
-    if (data) {
-      setRealizationPageContent(
-        data.realization.data.attributes.realizationPageContent.split("\n")
-      );
-      setCustomerImage(
-        data.realization.data.attributes.banner.data.attributes.url
-      );
+    if (data && data.realization && data.realization.data && data.realization.data.attributes) {
+      const attributes = data.realization.data.attributes;
+      
+      if (attributes.realizationPageContent) {
+        setRealizationPageContent(attributes.realizationPageContent.split("\n"));
+      } else {
+        console.error("realizationPageContent is undefined");
+        setRealizationPageContent([]);
+      }
+
+      if (attributes.banner && attributes.banner.data && attributes.banner.data.attributes) {
+        setCustomerImage(attributes.banner.data.attributes.url);
+      } else {
+        console.error("banner image URL is undefined");
+        setCustomerImage(null);
+      }
+    } else {
+      console.error("Data structure is incomplete:", data);
     }
   }, [data]);
 
-  if (!realizationPageContent) return <div>Loading...</div>;
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
-
+  if (!realizationPageContent) return <div>No content available</div>;
   return (
     <div>
       <img src={cigar} className="cigar" />
@@ -221,7 +230,7 @@ const Hulecos = () => {
       <div
         className="w-full relative"
         style={{
-          backgroundImage: `url(${config.apiUrl}${customerImage})`,
+          backgroundImage: customerImage ? `url(${config.apiUrl}${customerImage})` : 'none',
         }}
       >
         {/* NEW DIV HERE */}

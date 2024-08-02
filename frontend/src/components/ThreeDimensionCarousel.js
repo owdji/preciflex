@@ -38,15 +38,15 @@ export default function ThreeDimensionCarousel({ realizations }) {
 
   const getLink = useMemo(() => {
     switch (realizations[current].id) {
-      case "3":
+      case "1":
         return "luxury/hyt";
-      case "4":
+      case "2":
         return "luxury/fluidic-tech";
-      case "6":
+      case "4":
         return "luxury/hulecos";
-      case "7":
-        return "luxury/light-tech";
       case "5":
+        return "luxury/light-tech";
+      case "3":
         return "medtech/5";
       default:
         return "";
@@ -55,7 +55,7 @@ export default function ThreeDimensionCarousel({ realizations }) {
 
   const renderMainCarouselElement = (realization) => {
     switch (realization.id) {
-      case "3":
+      case "1":
         return (
           <Canvas>
             <Environment preset="studio" />
@@ -64,13 +64,13 @@ export default function ThreeDimensionCarousel({ realizations }) {
             <ModuleFluidique position={[0, 0, 0]} scale={[100, 100, 100]} />
           </Canvas>
         );
-      case "4":
+      case "2":
         return (
           <div className="flex justify-center items-center h-full">
             <img src={FluidicTechWatch} alt="Fluidix Tech Watch" className="w-[30%]"/>
           </div>
         );
-      case "6":
+      case "4":
         return (
           <Canvas>
             <ambientLight intensity={1} />
@@ -78,13 +78,13 @@ export default function ThreeDimensionCarousel({ realizations }) {
             <HulecosModel position={[0, 3, 0]} scale={[1.4, 1.4, 1.4]} look={true} />
           </Canvas>
         );
-      case "7":
+      case "5":
         return (
           <div>
             <LightTechWatch/>
           </div>
         );
-      case "5":
+      case "3":
         return (
           <div className="flex justify-center items-center h-full">
             <img src={PreciHealth} alt="PreciHealth" className="max-h-[500px] md:max-h-[700px]"/>

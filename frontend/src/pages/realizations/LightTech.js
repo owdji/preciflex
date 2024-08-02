@@ -10,7 +10,7 @@ import { gql, useQuery } from '@apollo/client';
 
 const LIGHTTECH = gql`
 query getRealization {
-  realization(id: 7) {
+  realization(id: 5) {
     data {
       attributes {
         realizationPageContent

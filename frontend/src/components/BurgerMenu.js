@@ -97,7 +97,7 @@ const BurgerMenu = ({ backgroundColor }) => {
             {openDropdown === "medtech" && (
               <div className="dropdown-content">
                 <NavLink
-                  to="/medtech/5"
+                  to="/medtech/3"
                   onClick={toggleMenu}
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >

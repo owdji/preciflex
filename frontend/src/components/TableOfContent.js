@@ -7,7 +7,8 @@ const TableOfContent = () => {
   const [visibleSubtitlesIndex, setVisibleSubtitlesIndex] = useState(null);
 
   useEffect(() => {
-    const toc = createToc(document.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+    const tocContent = document.querySelectorAll('.realizationTemplateContent h1, .realizationTemplateContent h2, .realizationTemplateContent h3, .realizationTemplateContent h4, .realizationTemplateContent h5, .realizationTemplateContent h6');
+    const toc = createToc(tocContent);
     setTableOfContents(toc);
   }, []);
 

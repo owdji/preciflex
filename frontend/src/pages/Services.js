@@ -133,11 +133,12 @@ const Services = () => {
 
   return (
     <div className="homePage">
-      <div className="h-[80vh] flex flex-col justify-center items-center">
+      <div className="min-h-[80vh] flex flex-col justify-center items-center">
         <h1 className="title1 servicesTitle">
           At Preciflex, we support our clients through every step of the
           process, from &nbsp;
           <ServicesLinkWord
+            link="/services#ideation"
             word="ideation"
             icon={
               <svg
@@ -160,10 +161,10 @@ const Services = () => {
                 />
               </svg>
             }
-            link="link"
           />
           &nbsp; and &nbsp;
           <ServicesLinkWord
+            link="/services#R&D"
             word={"R&D"}
             icon={
               <svg
@@ -226,6 +227,7 @@ const Services = () => {
           />
           &nbsp; to &nbsp;
           <ServicesLinkWord
+            link="/services#industrialization"
             word={"industrialization"}
             icon={
               <svg
@@ -246,6 +248,7 @@ const Services = () => {
           />{" "}
           and &nbsp;
           <ServicesLinkWord
+            link="/services#production"
             word={"production"}
             icon={
               <svg
@@ -294,7 +297,7 @@ const Services = () => {
       </div>
       <div className="flex justify-center">
         <div className="realizationTemplateContent">
-        <ReactMarkdown components={components}>{content}</ReactMarkdown>
+          <ReactMarkdown components={components}>{content}</ReactMarkdown>
         </div>
       </div>
     </div>

@@ -107,7 +107,7 @@ const Footer = () => {
           <DropdownMenu
             title="Medtech"
             links={[
-              { to: "/medtech/5", text: "Preci-Health" },
+              { to: "/medtech/3", text: "Preci-Health" },
             ]}
             isMobile={isMobile}
           />

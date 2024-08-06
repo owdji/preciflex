@@ -1,13 +1,5 @@
 const createToc = (content) => {
     const newTableOfContents = [];
-    console.log(content)
-    //remove the last element
-    const contentArray = Array.from(content)
-    contentArray.pop()
-    content = contentArray
-    //remove the first element
-    contentArray.shift()
-    content = contentArray
     
     content.forEach((element) => {
       // Modifications des éléments

@@ -8,7 +8,8 @@ import BurgerMenu from "./BurgerMenu";
 const Header = ({ backgroundColor = "headerBackgroundWhite" }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [arrowColor, setArrowColor] = useState("black");
+
+  //Check if mobile
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 900);
@@ -20,6 +21,7 @@ const Header = ({ backgroundColor = "headerBackgroundWhite" }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  //Open dropdown
   const handleMenuClick = (dropdown) => {
     setOpenDropdown(openDropdown === dropdown ? null : dropdown);
   };
@@ -31,7 +33,6 @@ const Header = ({ backgroundColor = "headerBackgroundWhite" }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  //if contact is active set arrow color to blue
   return (
     <div className={`header ${backgroundColor}`}>
       <Link to="/">
@@ -117,7 +118,7 @@ const Header = ({ backgroundColor = "headerBackgroundWhite" }) => {
             {openDropdown === "medtech" && (
               <div className="dropdown">
                 <NavLink
-                  to="/medtech/5"
+                  to="/medtech/3"
                   className={({ isActive }) => (isActive ? "active-link" : "")}
                 >
                   Preci-Health

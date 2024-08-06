@@ -91,7 +91,6 @@ const Homepage = () => {
 
   const content = data.homePage.data.attributes;
 
-  console.log(content.realizations.data) 
   return (
     <div className="homePage grid grid-cols-6 gap-4">
       <div className="flex flex-col justify-between min-h-screen col-span-6 firstItemPading">

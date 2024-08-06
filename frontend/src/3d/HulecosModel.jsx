@@ -50,4 +50,5 @@ const HulecosModel = forwardRef((props, ref) => {
 });
 
 useGLTF.preload('/hulecos.glb');
+
 export default HulecosModel;

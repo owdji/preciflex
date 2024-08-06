@@ -1179,6 +1179,30 @@ export interface ApiServicesPageServicesPage extends Schema.SingleType {
   };
 }
 
+export interface ApiTestTest extends Schema.SingleType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'test';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contenu: Attribute.Blocks;
+    markdownContent: Attribute.RichText;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1204,6 +1228,7 @@ declare module '@strapi/types' {
       'api::medtech-home-page.medtech-home-page': ApiMedtechHomePageMedtechHomePage;
       'api::realization.realization': ApiRealizationRealization;
       'api::services-page.services-page': ApiServicesPageServicesPage;
+      'api::test.test': ApiTestTest;
     }
   }
 }

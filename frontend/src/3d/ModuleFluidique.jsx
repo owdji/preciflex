@@ -9,7 +9,6 @@ export function ModuleFluidique({ color = 'blue', ...props }) {
   const modelFluidiqueRef = useRef()
   useSmoothLookAt(modelFluidiqueRef, props.look)
 
-  // Create a new material based on the chosen color
   const liquidMaterial = useMemo(() => {
     const newMaterial = materials['Material.002'].clone()
     newMaterial.color = new THREE.Color(color)

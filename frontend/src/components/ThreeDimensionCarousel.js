@@ -47,7 +47,7 @@ export default function ThreeDimensionCarousel({ realizations }) {
       case "5":
         return "luxury/light-tech";
       case "3":
-        return "medtech/5";
+        return "medtech/3";
       default:
         return "";
     }

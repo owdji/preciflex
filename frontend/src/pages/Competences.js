@@ -39,7 +39,7 @@ const Competences = () => {
   return (
     <div className='homePage'>
       <div className='md:min-h-[40vh] grid grid-cols-6 firstItemPading'>
-        <div className='col-span-6 md:col-span-2'>
+        <div clas sName='col-span-6 md:col-span-2'>
           <h1 className='title1 col-span-2'>{data.competencesPage.data.attributes.title}</h1>
           {isMobile ? null : <TableOfContent/>}
         </div>

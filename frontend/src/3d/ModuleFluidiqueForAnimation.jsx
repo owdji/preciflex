@@ -37,7 +37,6 @@ const ModuleFluidiqueForAnimation = ({color, ...props }) => {
         x: -5,
         y: 0,
         z: 0,
-        duration: 5,
         scrollTrigger: {
           trigger: '.firstSection',
           start: 'top center',

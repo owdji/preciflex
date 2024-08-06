@@ -13,7 +13,6 @@ export function ModuleFluidiqueHero(props) {
     useGSAP(() => { 
       gsap.to(moduleFluidiqueRef.current.rotation, {
         y: Math.PI,
-        duration: 5,
         scrollTrigger: {
           trigger: '.hytContainer',
           start: 'center center',

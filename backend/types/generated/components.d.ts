@@ -22,6 +22,7 @@ export interface RealizationsTest extends Schema.Component {
   attributes: {
     Title: Attribute.String;
     content: Attribute.RichText;
+    Contenu: Attribute.Blocks;
   };
 }
 

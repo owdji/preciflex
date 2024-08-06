@@ -97,7 +97,7 @@ const Footer = () => {
           <DropdownMenu
             title="Luxury"
             links={[
-              { to: "/luxury/HYT", text: "HYT" },
+              { to: "/luxury/hyt", text: "HYT" },
               { to: "/luxury/light-tech", text: "Light Technologies" },
               { to: "/luxury/fluidic-tech", text: "Fluidic Technologies" },
               { to: "/luxury/hulecos", text: "Hulecos" },
